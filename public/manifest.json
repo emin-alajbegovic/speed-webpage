@@ -1,0 +1,12 @@
+{
+  "name": "Begovac Spedition",
+  "short_name": "Begovac",
+  "description": "Mednarodni transport in špedicija",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}
