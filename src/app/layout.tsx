@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     default: 'Begovac Spedition – Mednarodni transport in špedicija',
     template: '%s | Begovac Spedition',
   },
-  description: 'Begovac Spedition je zanesljiv logistični partner za mednarodni cestni prevoz in špedicijo po vsej Evropi. Nudimo FTL, LTL, hladna veriga in posebne prevoze.',
+  description: 'Begovac Spedition je zanesljiv logistični partner za mednarodni cestni prevoz in špedicijo po vsej Evropi. Nudimo FTL, LTL in posebne prevoze.',
   keywords: [
     'transport', 'špedicija', 'logistika', 'cestni prevoz', 'mednarodni prevoz',
-    'FTL', 'LTL', 'hladna veriga', 'Slovenija', 'Evropa', 'Begovac Spedition',
+    'FTL', 'LTL', 'Slovenija', 'Evropa', 'Begovac Spedition',
     'freight forwarding', 'logistics', 'road transport', 'spedition',
   ],
   authors: [{ name: 'Begovac Spedition d.o.o.' }],
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <LanguageProvider>
             <Navbar />
-            <main>{children}</main>
+            <main className="relative z-0">{children}</main>
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

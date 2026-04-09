@@ -13,21 +13,6 @@ export default function ContactPage() {
 
   const infoItems = [
     {
-      icon: MapPin,
-      label: t.contact.info.address,
-      value: t.contact.info.addressValue,
-      color: 'text-orange-500',
-      bg: 'bg-orange-500/10',
-    },
-    {
-      icon: Phone,
-      label: t.contact.info.phone,
-      value: '+386 40 123 456',
-      href: 'tel:+38640123456',
-      color: 'text-blue-500',
-      bg: 'bg-blue-500/10',
-    },
-    {
       icon: Mail,
       label: t.contact.info.email,
       value: 'info@begovac-spedition.com',
@@ -80,6 +65,68 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2 space-y-5"
             >
+              {/* Addresses */}
+              <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-2xl p-5 hover:border-[var(--accent)]/30 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-orange-500" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-2">
+                      {t.contact.info.address}
+                    </p>
+                    <p className="font-semibold text-[var(--foreground)] text-sm mb-3">
+                      {t.contact.info.companyName}
+                    </p>
+                    <div className="space-y-2.5">
+                      {t.contact.info.addressPlaces.map((place) => (
+                        <div
+                          key={place.label}
+                          className="rounded-xl border border-[var(--card-border)] bg-[var(--muted)]/50 px-3 py-2.5"
+                        >
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent)] mb-1">
+                            {place.label}
+                          </p>
+                          <p className="text-sm text-[var(--foreground)] leading-snug">{place.line}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phones */}
+              <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-2xl p-5 hover:border-[var(--accent)]/30 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 bg-orange-500/10 rounded-xl flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-orange-500" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-3">
+                      {t.contact.info.phone}
+                    </p>
+                    <div className="space-y-2.5">
+                      {t.contact.info.phonePlaces.map((p) => (
+                        <div
+                          key={p.label}
+                          className="rounded-xl border border-[var(--card-border)] bg-[var(--muted)]/50 px-3 py-2.5"
+                        >
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent)] mb-1">
+                            {p.label}
+                          </p>
+                          <a
+                            href={`tel:${p.tel}`}
+                            className="text-sm font-semibold text-[var(--foreground)] hover:text-[var(--accent)] tabular-nums transition-colors"
+                          >
+                            {p.display}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {infoItems.map(({ icon: Icon, label, value, href, color, bg }) => (
                 <div
                   key={label}
@@ -109,7 +156,7 @@ export default function ContactPage() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/38640123456"
+                href={`https://wa.me/${t.contact.info.whatsappTel}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-5 bg-emerald-500 text-white rounded-2xl hover:bg-emerald-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
@@ -117,7 +164,7 @@ export default function ContactPage() {
                 <MessageCircle className="w-6 h-6 shrink-0" />
                 <div>
                   <p className="font-bold text-sm">WhatsApp</p>
-                  <p className="text-xs text-white/80">+386 40 123 456</p>
+                  <p className="text-xs text-white/80">{t.cta.phone}</p>
                 </div>
               </a>
 
@@ -126,7 +173,9 @@ export default function ContactPage() {
                 <div className="text-center">
                   <MapPin className="w-10 h-10 text-[var(--accent)] mx-auto mb-2" />
                   <p className="text-sm font-medium text-[var(--muted-foreground)]">Google Maps</p>
-                  <p className="text-xs text-[var(--muted-foreground)]/60 mt-1">Ljubljana, Slovenija</p>
+                  <p className="text-xs text-[var(--muted-foreground)]/60 mt-1">
+                    {t.contact.info.mapPlaceholder}
+                  </p>
                 </div>
                 <div className="absolute inset-0 grid-pattern opacity-30" />
               </div>

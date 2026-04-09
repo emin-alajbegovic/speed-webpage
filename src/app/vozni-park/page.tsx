@@ -12,7 +12,6 @@ import { fleetImages, heroTruckImage } from '@/lib/site-images';
 const truckGradients = [
   'from-orange-500/15 to-amber-400/5',
   'from-blue-600/15 to-blue-400/5',
-  'from-emerald-600/15 to-green-400/5',
   'from-slate-600/15 to-slate-400/5',
   'from-red-600/15 to-rose-400/5',
   'from-purple-600/15 to-violet-400/5',
@@ -21,7 +20,6 @@ const truckGradients = [
 const truckAccents = [
   'border-orange-500/30',
   'border-blue-500/30',
-  'border-emerald-500/30',
   'border-slate-500/30',
   'border-red-500/30',
   'border-purple-500/30',
@@ -30,7 +28,6 @@ const truckAccents = [
 const truckBadges = [
   'bg-orange-500',
   'bg-blue-500',
-  'bg-emerald-500',
   'bg-slate-500',
   'bg-red-500',
   'bg-purple-500',
@@ -39,7 +36,6 @@ const truckBadges = [
 const truckSpecs = [
   ['Dolžina: 13.6m', 'Višina: 3.0m', 'Širina: 2.48m', 'Vzmetenje: pnevmatsko'],
   ['Dolžina: 13.6m', 'Strani: 3x zložljive', 'Pokrov: tarpaulin', 'Nakladanje: zadaj/strani'],
-  ['Temp. razpon: -25°C / +12°C', 'ATP certifikat', 'GPS sledenje', 'Kontinuiran nadzor'],
   ['Dolžina: do 20m', 'Višina: neomejena', 'Spremljevalni escort', 'Posebna dovoljenja'],
   ['Tovornost: do 8t', 'Volumen: 40m³', 'Hitre dostave', 'Urbana območja'],
   ['Kapaciteta: 25.000L', 'ADR certifikat', 'Pnevmatsko raztovarjanje', 'Čiščenje tankov'],

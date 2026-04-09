@@ -12,23 +12,23 @@ export default function CTA() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref}>
+    <section className="py-24 sm:py-28 relative overflow-hidden isolate scroll-mt-[var(--navbar-height)]" ref={ref}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)] via-orange-600 to-amber-500" />
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[var(--accent)] via-orange-600 to-amber-500" />
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
       </div>
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-[1] max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -11,7 +11,6 @@ import { fleetImages } from '@/lib/site-images';
 const truckColors = [
   'from-orange-500/20 to-amber-400/10',
   'from-blue-600/20 to-blue-400/10',
-  'from-emerald-600/20 to-green-400/10',
   'from-slate-600/20 to-slate-400/10',
   'from-red-600/20 to-rose-400/10',
   'from-purple-600/20 to-violet-400/10',

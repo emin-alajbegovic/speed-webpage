@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Truck, Phone, Mail, MapPin } from 'lucide-react';
+import { brandLogo } from '@/lib/site-images';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 // Social media SVG icons (lucide-react doesn't include these in this version)
 const FacebookIcon = () => (
@@ -52,14 +54,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 bg-[#f97316] rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20">
-                <Truck className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-lg tracking-tight text-white">Begovac</span>
-                <span className="text-xs font-medium text-[#f97316] tracking-widest uppercase">Spedition</span>
-              </div>
+            <Link href="/" className="inline-block mb-4 group">
+              <Image
+                src={brandLogo}
+                alt="Begovac Spedition"
+                width={660}
+                height={144}
+                className="h-11 sm:h-12 w-auto max-w-[min(100%,360px)] object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+              />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed mb-5 max-w-xs">
               {t.footer.description}
@@ -125,18 +127,51 @@ export default function Footer() {
             <h3 className="font-semibold text-xs uppercase tracking-widest text-white/35 mb-4">
               {t.footer.contact}
             </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#f97316] mt-0.5 shrink-0" />
-                <span className="text-sm text-white/60 whitespace-pre-line leading-relaxed">
-                  {t.contact.info.addressValue}
-                </span>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <MapPin className="w-4 h-4 text-[#f97316] mt-1 shrink-0" aria-hidden />
+                <div className="min-w-0 flex-1 space-y-3">
+                  <p className="text-sm font-semibold text-white/90 leading-snug">
+                    {t.contact.info.companyName}
+                  </p>
+                  <div className="space-y-2.5">
+                    {t.contact.info.addressPlaces.map((place) => (
+                      <div
+                        key={place.label}
+                        className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-2.5"
+                      >
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-[#f97316]/90 mb-1">
+                          {place.label}
+                        </p>
+                        <p className="text-sm text-white/65 leading-snug">{place.line}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#f97316] shrink-0" />
-                <a href="tel:+38640123456" className="text-sm text-white/60 hover:text-[#f97316] transition-colors">
-                  +386 40 123 456
-                </a>
+              <li className="flex gap-3">
+                <Phone className="w-4 h-4 text-[#f97316] mt-1 shrink-0" aria-hidden />
+                <div className="min-w-0 flex-1 space-y-2.5">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-white/35">
+                    {t.contact.info.phone}
+                  </p>
+                  {t.contact.info.phonePlaces.map((p) => (
+                    <div
+                      key={p.label}
+                      className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-2.5"
+                    >
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#f97316]/90 mb-1">
+                        {p.label}
+                      </p>
+                      <a
+                        href={`tel:${p.tel}`}
+                        className="text-sm text-white/70 hover:text-[#f97316] transition-colors font-medium tabular-nums"
+                      >
+                        {p.display}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#f97316] shrink-0" />

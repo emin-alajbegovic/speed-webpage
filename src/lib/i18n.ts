@@ -2,9 +2,9 @@ export type Locale = 'sl' | 'en' | 'es' | 'de';
 
 export const locales: { code: Locale; label: string; flag: string }[] = [
   { code: 'sl', label: 'Slovenščina', flag: '🇸🇮' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
 ];
 
 export const translations = {
@@ -39,7 +39,7 @@ export const translations = {
         {
           title: 'Cestni prevoz',
           description: 'Hitri in zanesljivi prevozi tovora po vsej Evropi. FTL in LTL rešitve za vsako potrebo.',
-          features: ['Celotovorni prevozi (FTL)', 'Delni prevozi (LTL)', 'Ekspresne dostave', 'Temperaturno nadzorovano'],
+          features: ['Celotovorni prevozi (FTL)', 'Delni prevozi (LTL)', 'Ekspresne dostave', 'GPS sledenje in poročanje'],
         },
         {
           title: 'Mednarodna špedicija',
@@ -55,11 +55,6 @@ export const translations = {
           title: 'Posebni prevozi',
           description: 'Prevoz nadgabaritnih, nevarnih in vrednostnih tovorov z ustreznimi dovoljenji.',
           features: ['Nadgabaritni prevozi', 'ADR blago', 'Vrednostni prevozi', 'Escortna vozila'],
-        },
-        {
-          title: 'Hladna veriga',
-          description: 'Prevoz hlajenih in zamrznjenih živil z zagotavljanjem celotne hladne verige.',
-          features: ['Temperatura 0°C do +8°C', 'Zamrznjeno blago', 'ATP certifikat', 'Stalni nadzor'],
         },
         {
           title: 'Logistično svetovanje',
@@ -118,7 +113,6 @@ export const translations = {
       items: [
         { name: 'Mega Trailer', capacity: 'Do 24 ton', description: 'Idealen za visoke tovore do 3m' },
         { name: 'Tautliner', capacity: 'Do 24 ton', description: 'Stransko nalaganje za enostavno rokovanje' },
-        { name: 'Frigorifico', capacity: 'Do 22 ton', description: 'Hladilni prevozi po vsej Evropi' },
         { name: 'Flatbed', capacity: 'Do 24 ton', description: 'Nadgabaritni in posebni prevozi' },
         { name: 'Box Truck', capacity: 'Do 8 ton', description: 'Dostava na zadnji milji' },
         { name: 'Tanker', capacity: 'Do 25.000 L', description: 'Tekočine in kemikalije' },
@@ -139,7 +133,7 @@ export const translations = {
           name: 'Ana Müller',
           company: 'Alpine Foods AG',
           role: 'Vodja dobavne verige',
-          text: 'Odlična storitev za prevoz prehrambenih izdelkov. Hladna veriga je vedno zagotovljena in komunikacija je vzorna.',
+          text: 'Odlična storitev za mednarodne prevoze. Točnost, varnost in komunikacija sta na visoki ravni.',
         },
         {
           name: 'Stefan Weber',
@@ -163,7 +157,7 @@ export const translations = {
       subtitle: 'Kontaktirajte nas danes in dobite brezplačno ponudbo za vaše transportne potrebe. Naša ekipa je na voljo 24/7.',
       cta1: 'Zahtevajte ponudbo',
       cta2: 'Pokličite nas',
-      phone: '+386 40 123 456',
+      phone: '+386 40 482 669',
     },
     contact: {
       badge: 'Kontakt',
@@ -180,16 +174,26 @@ export const translations = {
         submit: 'Pošlji povpraševanje',
         sending: 'Pošiljanje...',
         success: 'Hvala! Vaše sporočilo je bilo poslano. Odgovorimo v roku 2 ur.',
-        services: ['Cestni prevoz', 'Mednarodna špedicija', 'Skladiščenje', 'Posebni prevozi', 'Hladna veriga', 'Svetovanje'],
+        services: ['Cestni prevoz', 'Mednarodna špedicija', 'Skladiščenje', 'Posebni prevozi', 'Svetovanje'],
         selectService: 'Izberite storitev',
       },
       info: {
         address: 'Naslov',
-        addressValue: 'Begovac Spedition d.o.o.\nGlavna ulica 1\n1000 Ljubljana, Slovenija',
+        companyName: 'Begovac Spedition d.o.o.',
+        addressPlaces: [
+          { label: 'Knjigovodstvo in poslovni naslov', line: 'Lunačkova ulica 8, 8223 Mirna' },
+          { label: 'Parkirišče', line: 'Tržaška cesta 35, 2000 Maribor' },
+        ],
         phone: 'Telefon',
         email: 'E-pošta',
         hours: 'Delovni čas',
         hoursValue: 'Pon – Pet: 07:00 – 20:00\nSob: 08:00 – 14:00\nDispečerstvo: 24/7',
+        mapPlaceholder: 'Maribor & Mirna, Slovenija',
+        phonePlaces: [
+          { label: 'Knjigovodstvo in finanse', display: '+386 40 485 905', tel: '+38640485905' },
+          { label: 'Dosegljivost 24/7 — dispečerska ekipa', display: '+386 40 482 669', tel: '+38640482669' },
+        ],
+        whatsappTel: '38640482669',
       },
     },
     about: {
@@ -258,7 +262,7 @@ export const translations = {
         {
           title: 'Road Transport',
           description: 'Fast and reliable freight transport across Europe. FTL and LTL solutions for every need.',
-          features: ['Full Truckload (FTL)', 'Part Load (LTL)', 'Express Delivery', 'Temperature Controlled'],
+          features: ['Full Truckload (FTL)', 'Part Load (LTL)', 'Express Delivery', 'GPS tracking & reporting'],
         },
         {
           title: 'International Freight',
@@ -274,11 +278,6 @@ export const translations = {
           title: 'Special Transports',
           description: 'Transport of oversized, hazardous and valuable cargo with appropriate permits.',
           features: ['Oversized Cargo', 'ADR Goods', 'Valuable Transport', 'Escort Vehicles'],
-        },
-        {
-          title: 'Cold Chain',
-          description: 'Transport of chilled and frozen food products with full cold chain maintenance.',
-          features: ['Temperature 0°C to +8°C', 'Frozen Goods', 'ATP Certificate', 'Continuous Monitoring'],
         },
         {
           title: 'Logistics Consulting',
@@ -337,7 +336,6 @@ export const translations = {
       items: [
         { name: 'Mega Trailer', capacity: 'Up to 24 tons', description: 'Ideal for high loads up to 3m' },
         { name: 'Tautliner', capacity: 'Up to 24 tons', description: 'Side loading for easy handling' },
-        { name: 'Refrigerated', capacity: 'Up to 22 tons', description: 'Cold transport across Europe' },
         { name: 'Flatbed', capacity: 'Up to 24 tons', description: 'Oversized and special transports' },
         { name: 'Box Truck', capacity: 'Up to 8 tons', description: 'Last mile delivery' },
         { name: 'Tanker', capacity: 'Up to 25,000 L', description: 'Liquids and chemicals' },
@@ -358,7 +356,7 @@ export const translations = {
           name: 'Ana Müller',
           company: 'Alpine Foods AG',
           role: 'Supply Chain Manager',
-          text: 'Excellent service for food product transport. The cold chain is always maintained and communication is exemplary.',
+          text: 'Excellent service for international transport. Punctuality, safety, and communication are outstanding.',
         },
         {
           name: 'Stefan Weber',
@@ -382,7 +380,7 @@ export const translations = {
       subtitle: 'Contact us today and get a free quote for your transport needs. Our team is available 24/7.',
       cta1: 'Request a Quote',
       cta2: 'Call Us',
-      phone: '+386 40 123 456',
+      phone: '+386 40 482 669',
     },
     contact: {
       badge: 'Contact',
@@ -399,16 +397,26 @@ export const translations = {
         submit: 'Send Inquiry',
         sending: 'Sending...',
         success: 'Thank you! Your message has been sent. We will respond within 2 hours.',
-        services: ['Road Transport', 'International Freight', 'Warehousing', 'Special Transports', 'Cold Chain', 'Consulting'],
+        services: ['Road Transport', 'International Freight', 'Warehousing', 'Special Transports', 'Consulting'],
         selectService: 'Select a service',
       },
       info: {
         address: 'Address',
-        addressValue: 'Begovac Spedition d.o.o.\nGlavna ulica 1\n1000 Ljubljana, Slovenia',
+        companyName: 'Begovac Spedition d.o.o.',
+        addressPlaces: [
+          { label: 'Registered office & accounting', line: 'Lunačkova ulica 8, 8223 Mirna, Slovenia' },
+          { label: 'Parking', line: 'Tržaška cesta 35, 2000 Maribor, Slovenia' },
+        ],
         phone: 'Phone',
         email: 'Email',
         hours: 'Working Hours',
         hoursValue: 'Mon – Fri: 07:00 – 20:00\nSat: 08:00 – 14:00\nDispatch: 24/7',
+        mapPlaceholder: 'Maribor & Mirna, Slovenia',
+        phonePlaces: [
+          { label: 'Accounting & finance', display: '+386 40 485 905', tel: '+38640485905' },
+          { label: 'Dispatch team (24/7)', display: '+386 40 482 669', tel: '+38640482669' },
+        ],
+        whatsappTel: '38640482669',
       },
     },
     about: {
@@ -477,7 +485,7 @@ export const translations = {
         {
           title: 'Transporte por Carretera',
           description: 'Transporte rápido y confiable en toda Europa. Soluciones FTL y LTL para cada necesidad.',
-          features: ['Carga Completa (FTL)', 'Carga Parcial (LTL)', 'Entrega Express', 'Temperatura Controlada'],
+          features: ['Carga Completa (FTL)', 'Carga Parcial (LTL)', 'Entrega Express', 'Seguimiento GPS e informes'],
         },
         {
           title: 'Carga Internacional',
@@ -493,11 +501,6 @@ export const translations = {
           title: 'Transportes Especiales',
           description: 'Transporte de carga sobredimensionada, peligrosa y valiosa con permisos apropiados.',
           features: ['Carga Sobredimensionada', 'Mercancías ADR', 'Transporte de Valores', 'Vehículos de Escolta'],
-        },
-        {
-          title: 'Cadena de Frío',
-          description: 'Transporte de productos refrigerados y congelados con mantenimiento de toda la cadena de frío.',
-          features: ['Temperatura 0°C a +8°C', 'Productos Congelados', 'Certificado ATP', 'Monitoreo Continuo'],
         },
         {
           title: 'Consultoría Logística',
@@ -556,7 +559,6 @@ export const translations = {
       items: [
         { name: 'Mega Trailer', capacity: 'Hasta 24 toneladas', description: 'Ideal para cargas altas hasta 3m' },
         { name: 'Tautliner', capacity: 'Hasta 24 toneladas', description: 'Carga lateral para fácil manejo' },
-        { name: 'Refrigerado', capacity: 'Hasta 22 toneladas', description: 'Transporte frío en toda Europa' },
         { name: 'Plataforma', capacity: 'Hasta 24 toneladas', description: 'Transportes especiales y sobredimensionados' },
         { name: 'Furgoneta', capacity: 'Hasta 8 toneladas', description: 'Entrega de último kilómetro' },
         { name: 'Cisterna', capacity: 'Hasta 25.000 L', description: 'Líquidos y productos químicos' },
@@ -577,7 +579,7 @@ export const translations = {
           name: 'Ana Müller',
           company: 'Alpine Foods AG',
           role: 'Gestora de Cadena de Suministro',
-          text: 'Excelente servicio para transporte de productos alimenticios. La cadena de frío siempre está garantizada.',
+          text: 'Excelente servicio para transporte internacional. Puntualidad, seguridad y comunicación impecables.',
         },
         {
           name: 'Stefan Weber',
@@ -601,7 +603,7 @@ export const translations = {
       subtitle: 'Contáctenos hoy y obtenga una cotización gratuita. Nuestro equipo está disponible 24/7.',
       cta1: 'Solicitar Cotización',
       cta2: 'Llámenos',
-      phone: '+386 40 123 456',
+      phone: '+386 40 482 669',
     },
     contact: {
       badge: 'Contacto',
@@ -618,16 +620,26 @@ export const translations = {
         submit: 'Enviar Consulta',
         sending: 'Enviando...',
         success: '¡Gracias! Su mensaje ha sido enviado. Responderemos en 2 horas.',
-        services: ['Transporte por Carretera', 'Carga Internacional', 'Almacenamiento', 'Transportes Especiales', 'Cadena de Frío', 'Consultoría'],
+        services: ['Transporte por Carretera', 'Carga Internacional', 'Almacenamiento', 'Transportes Especiales', 'Consultoría'],
         selectService: 'Seleccione un servicio',
       },
       info: {
         address: 'Dirección',
-        addressValue: 'Begovac Spedition d.o.o.\nGlavna ulica 1\n1000 Ljubljana, Eslovenia',
+        companyName: 'Begovac Spedition d.o.o.',
+        addressPlaces: [
+          { label: 'Contabilidad y domicilio social', line: 'Lunačkova ulica 8, 8223 Mirna, Eslovenia' },
+          { label: 'Aparcamiento', line: 'Tržaška cesta 35, 2000 Maribor, Eslovenia' },
+        ],
         phone: 'Teléfono',
         email: 'Correo',
         hours: 'Horario de Atención',
         hoursValue: 'Lun – Vie: 07:00 – 20:00\nSáb: 08:00 – 14:00\nDespacho: 24/7',
+        mapPlaceholder: 'Maribor y Mirna, Eslovenia',
+        phonePlaces: [
+          { label: 'Contabilidad y finanzas', display: '+386 40 485 905', tel: '+38640485905' },
+          { label: 'Equipo de despacho (24/7)', display: '+386 40 482 669', tel: '+38640482669' },
+        ],
+        whatsappTel: '38640482669',
       },
     },
     about: {
@@ -696,7 +708,7 @@ export const translations = {
         {
           title: 'Straßentransport',
           description: 'Schneller und zuverlässiger Gütertransport in ganz Europa. FTL- und LTL-Lösungen für jeden Bedarf.',
-          features: ['Komplettladung (FTL)', 'Stückgut (LTL)', 'Expresslieferung', 'Temperaturkontrolliert'],
+          features: ['Komplettladung (FTL)', 'Stückgut (LTL)', 'Expresslieferung', 'GPS-Tracking & Reporting'],
         },
         {
           title: 'Internationale Spedition',
@@ -712,11 +724,6 @@ export const translations = {
           title: 'Sondertransporte',
           description: 'Transport von Übermaß-, Gefahrgut und Werttransporten mit entsprechenden Genehmigungen.',
           features: ['Übermaßladung', 'ADR-Güter', 'Werttransport', 'Begleitfahrzeuge'],
-        },
-        {
-          title: 'Kühlkette',
-          description: 'Transport von gekühlten und gefrorenen Lebensmitteln mit vollständiger Kühlkettenerhaltung.',
-          features: ['Temperatur 0°C bis +8°C', 'Tiefkühlware', 'ATP-Zertifikat', 'Kontinuierliche Überwachung'],
         },
         {
           title: 'Logistikberatung',
@@ -775,7 +782,6 @@ export const translations = {
       items: [
         { name: 'Mega Trailer', capacity: 'Bis 24 Tonnen', description: 'Ideal für hohe Ladungen bis 3m' },
         { name: 'Tautliner', capacity: 'Bis 24 Tonnen', description: 'Seitenbeladung für einfaches Handling' },
-        { name: 'Kühlfahrzeug', capacity: 'Bis 22 Tonnen', description: 'Kühltransporte in ganz Europa' },
         { name: 'Pritsche', capacity: 'Bis 24 Tonnen', description: 'Übermaß- und Sondertransporte' },
         { name: 'Kleintransporter', capacity: 'Bis 8 Tonnen', description: 'Letzte Meile Lieferung' },
         { name: 'Tankfahrzeug', capacity: 'Bis 25.000 L', description: 'Flüssigkeiten und Chemikalien' },
@@ -796,7 +802,7 @@ export const translations = {
           name: 'Ana Müller',
           company: 'Alpine Foods AG',
           role: 'Supply Chain Managerin',
-          text: 'Ausgezeichneter Service für den Transport von Lebensmitteln. Die Kühlkette ist immer gewährleistet.',
+          text: 'Ausgezeichneter Service für internationalen Transport. Pünktlichkeit, Sicherheit und Kommunikation überzeugen.',
         },
         {
           name: 'Stefan Weber',
@@ -820,7 +826,7 @@ export const translations = {
       subtitle: 'Kontaktieren Sie uns noch heute und erhalten Sie ein kostenloses Angebot. Unser Team ist 24/7 verfügbar.',
       cta1: 'Angebot anfordern',
       cta2: 'Rufen Sie uns an',
-      phone: '+386 40 123 456',
+      phone: '+386 40 482 669',
     },
     contact: {
       badge: 'Kontakt',
@@ -837,16 +843,26 @@ export const translations = {
         submit: 'Anfrage senden',
         sending: 'Senden...',
         success: 'Danke! Ihre Nachricht wurde gesendet. Wir antworten innerhalb von 2 Stunden.',
-        services: ['Straßentransport', 'Internationale Spedition', 'Lagerung', 'Sondertransporte', 'Kühlkette', 'Beratung'],
+        services: ['Straßentransport', 'Internationale Spedition', 'Lagerung', 'Sondertransporte', 'Beratung'],
         selectService: 'Service auswählen',
       },
       info: {
         address: 'Adresse',
-        addressValue: 'Begovac Spedition d.o.o.\nGlavna ulica 1\n1000 Ljubljana, Slowenien',
+        companyName: 'Begovac Spedition d.o.o.',
+        addressPlaces: [
+          { label: 'Buchhaltung und Firmensitz', line: 'Lunačkova ulica 8, 8223 Mirna, Slowenien' },
+          { label: 'Parkplatz', line: 'Tržaška cesta 35, 2000 Maribor, Slowenien' },
+        ],
         phone: 'Telefon',
         email: 'E-Mail',
         hours: 'Öffnungszeiten',
         hoursValue: 'Mo – Fr: 07:00 – 20:00\nSa: 08:00 – 14:00\nDisposition: 24/7',
+        mapPlaceholder: 'Maribor & Mirna, Slowenien',
+        phonePlaces: [
+          { label: 'Buchhaltung und Finanzen', display: '+386 40 485 905', tel: '+38640485905' },
+          { label: 'Disposition, erreichbar 24/7', display: '+386 40 482 669', tel: '+38640482669' },
+        ],
+        whatsappTel: '38640482669',
       },
     },
     about: {
@@ -904,7 +920,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslation> = {
     subtitle: 'Zadnja posodobitev: januar 2025 · Velja za spletno stran begovac-spedition.com',
     intro: 'Begovac Spedition d.o.o. spoštuje vašo zasebnost in varuje vaše osebne podatke v skladu z Uredbo (EU) 2016/679 (GDPR) ter Zakonom o varstvu osebnih podatkov (ZVOP-2). Ta politika pojasnjuje, katere podatke zbiramo, zakaj in kako jih obdelujemo.',
     sections: [
-      { title: 'Upravljavec osebnih podatkov', content: 'Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Slovenija\nMatična številka: 1234567000 | Davčna številka: SI12345678\nE-pošta: info@begovac-spedition.com | Tel: +386 40 123 456' },
+      { title: 'Upravljavec osebnih podatkov', content: 'Begovac Spedition d.o.o., knjigovodstvo in poslovni naslov: Lunačkova ulica 8, 8223 Mirna; parkirišče: Tržaška cesta 35, 2000 Maribor, Slovenija\nMatična številka: 1234567000 | Davčna številka: SI12345678\nE-pošta: info@begovac-spedition.com | Tel.: knjigovodstvo/finance +386 40 485 905, dispečerstvo 24/7 +386 40 482 669' },
       { title: 'Katere podatke zbiramo', content: '• Identifikacijski podatki: ime, priimek, naziv podjetja\n• Kontaktni podatki: e-pošta, telefon, naslov\n• Poslovni podatki: podatki o pošiljkah in pogodbah\n• Tehnični podatki: IP naslov, vrsta brskalnika, pišotki\n• Komunikacijski podatki: vsebina vaših sporočil in povpraševanj' },
       { title: 'Namen in pravna podlaga obdelave', content: '• Izvajanje pogodbe: organizacija prevozov, izstavljanje računov\n• Komunikacija: odgovarjanje na povpraševanja\n• Trženje: samo z vašim soglasjem\n• Zakonske obveznosti: hramba računovodskih evidenc (10 let)\n• Varnost in izboljšanje storitev: analiza prometa spletne strani' },
       { title: 'Hramba podatkov', content: '• Pogodbe in poslovni dokumenti: 10 let\n• Računovodske evidence: 10 let (ZDavP-2)\n• Tržna sporočila: do preklica soglasja\n• Povpraševanja in komunikacija: 3 leta od zadnjega stika\n• Tehnični podatki spletne strani: 12 mesecev' },
@@ -920,7 +936,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslation> = {
     subtitle: 'Last updated: January 2025 · Applies to begovac-spedition.com',
     intro: 'Begovac Spedition d.o.o. respects your privacy and protects your personal data in accordance with Regulation (EU) 2016/679 (GDPR). This policy explains what data we collect, why we collect it, and how we process it.',
     sections: [
-      { title: 'Data Controller', content: 'Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Slovenia\nRegistration No: 1234567000 | VAT No: SI12345678\nEmail: info@begovac-spedition.com | Phone: +386 40 123 456' },
+      { title: 'Data Controller', content: 'Begovac Spedition d.o.o., registered office & accounting: Lunačkova ulica 8, 8223 Mirna; parking: Tržaška cesta 35, 2000 Maribor, Slovenia\nRegistration No: 1234567000 | VAT No: SI12345678\nEmail: info@begovac-spedition.com | Phone: accounting +386 40 485 905, dispatch 24/7 +386 40 482 669' },
       { title: 'Data We Collect', content: '• Identification data: name, surname, company name\n• Contact data: email, phone number, address\n• Business data: shipment and contract information\n• Technical data: IP address, browser type, cookies\n• Communication data: content of your messages and inquiries' },
       { title: 'Purpose and Legal Basis', content: '• Contract performance: organising transports, issuing invoices\n• Communication: responding to inquiries\n• Marketing: only with your consent\n• Legal obligations: accounting records retention (10 years)\n• Security and service improvement: website traffic analysis' },
       { title: 'Data Retention', content: '• Contracts and business documents: 10 years\n• Accounting records: 10 years (tax law)\n• Marketing communications: until consent is withdrawn\n• Inquiries and communication: 3 years from last contact\n• Website technical data: 12 months' },
@@ -936,7 +952,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslation> = {
     subtitle: 'Última actualización: enero 2025 · Aplicable a begovac-spedition.com',
     intro: 'Begovac Spedition d.o.o. respeta su privacidad y protege sus datos personales de acuerdo con el Reglamento (UE) 2016/679 (RGPD). Esta política explica qué datos recopilamos, por qué y cómo los procesamos.',
     sections: [
-      { title: 'Responsable del Tratamiento', content: 'Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Eslovenia\nNº Registro: 1234567000 | NIF: SI12345678\nCorreo: info@begovac-spedition.com | Tel: +386 40 123 456' },
+      { title: 'Responsable del Tratamiento', content: 'Begovac Spedition d.o.o., contabilidad y domicilio social: Lunačkova ulica 8, 8223 Mirna; aparcamiento: Tržaška cesta 35, 2000 Maribor, Eslovenia\nNº Registro: 1234567000 | NIF: SI12345678\nCorreo: info@begovac-spedition.com | Tel.: contabilidad +386 40 485 905, despacho 24/7 +386 40 482 669' },
       { title: 'Datos que Recopilamos', content: '• Datos de identificación: nombre, apellidos, nombre de empresa\n• Datos de contacto: correo electrónico, teléfono, dirección\n• Datos comerciales: información sobre envíos y contratos\n• Datos técnicos: dirección IP, tipo de navegador, cookies\n• Datos de comunicación: contenido de sus mensajes y consultas' },
       { title: 'Finalidad y Base Legal', content: '• Ejecución del contrato: organización de transportes, facturación\n• Comunicación: respuesta a consultas\n• Marketing: solo con su consentimiento\n• Obligaciones legales: conservación de registros contables (10 años)\n• Seguridad y mejora del servicio: análisis del tráfico web' },
       { title: 'Conservación de Datos', content: '• Contratos y documentos comerciales: 10 años\n• Registros contables: 10 años (legislación fiscal)\n• Comunicaciones de marketing: hasta retirar el consentimiento\n• Consultas y comunicación: 3 años desde el último contacto\n• Datos técnicos del sitio web: 12 meses' },
@@ -952,7 +968,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslation> = {
     subtitle: 'Letzte Aktualisierung: Januar 2025 · Gilt für begovac-spedition.com',
     intro: 'Begovac Spedition d.o.o. respektiert Ihre Privatsphäre und schützt Ihre personenbezogenen Daten gemäß der Verordnung (EU) 2016/679 (DSGVO). Diese Richtlinie erläutert, welche Daten wir erheben, warum und wie wir sie verarbeiten.',
     sections: [
-      { title: 'Verantwortlicher', content: 'Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Slowenien\nRegisternummer: 1234567000 | USt-IdNr.: SI12345678\nE-Mail: info@begovac-spedition.com | Tel: +386 40 123 456' },
+      { title: 'Verantwortlicher', content: 'Begovac Spedition d.o.o., Buchhaltung und Firmensitz: Lunačkova ulica 8, 8223 Mirna; Parkplatz: Tržaška cesta 35, 2000 Maribor, Slowenien\nRegisternummer: 1234567000 | USt-IdNr.: SI12345678\nE-Mail: info@begovac-spedition.com | Tel.: Buchhaltung +386 40 485 905, Disposition 24/7 +386 40 482 669' },
       { title: 'Erhobene Daten', content: '• Identifikationsdaten: Name, Vorname, Firmenname\n• Kontaktdaten: E-Mail, Telefonnummer, Adresse\n• Geschäftsdaten: Sendungs- und Vertragsinformationen\n• Technische Daten: IP-Adresse, Browsertyp, Cookies\n• Kommunikationsdaten: Inhalt Ihrer Nachrichten und Anfragen' },
       { title: 'Zweck und Rechtsgrundlage', content: '• Vertragserfüllung: Transportorganisation, Rechnungsstellung\n• Kommunikation: Beantwortung von Anfragen\n• Marketing: nur mit Ihrer Einwilligung\n• Rechtliche Pflichten: Aufbewahrung von Buchungsunterlagen (10 Jahre)\n• Sicherheit und Serviceverbesserung: Website-Verkehrsanalyse' },
       { title: 'Datenspeicherung', content: '• Verträge und Geschäftsdokumente: 10 Jahre\n• Buchhaltungsunterlagen: 10 Jahre (Steuerrecht)\n• Marketingkommunikation: bis zum Widerruf der Einwilligung\n• Anfragen und Kommunikation: 3 Jahre ab letztem Kontakt\n• Technische Website-Daten: 12 Monate' },
@@ -971,8 +987,8 @@ export const termsTranslations: Record<Locale, TermsTranslation> = {
     subtitle: 'Zadnja posodobitev: januar 2025 · Splošni pogoji za transportne in logistične storitve',
     intro: 'Ti splošni pogoji poslovanja urejajo razmerje med Begovac Spedition d.o.o. (Izvajalec) in stranko (Naročnik) pri opravljanju prevoznih, špediterskih in logističnih storitev. Z naročilom storitev Naročnik potrjuje sprejem teh pogojev.',
     sections: [
-      { title: 'Splošne določbe', content: 'Izvajalec: Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana\nMatična številka: 1234567000 | Davčna številka: SI12345678\n\nTi Pogoji začnejo veljati z dnem objave na spletni strani in nadomeščajo vse prejšnje različice. Izvajalec si pridržuje pravico do sprememb brez predhodnega obvestila.' },
-      { title: 'Storitve', content: '• Cestni prevoz tovora (FTL – celotovorni prevozi, LTL – delni prevozi)\n• Mednarodna špedicija in organizacija prevozov\n• Prevoz temperaturno občutljivega blaga (hladna veriga, ATP certifikat)\n• Posebni prevozi (nadgabaritni, ADR nevarno blago, vrednostni prevozi)\n• Skladiščenje in distribucija\n• Logistično svetovanje' },
+      { title: 'Splošne določbe', content: 'Izvajalec: Begovac Spedition d.o.o., knjigovodstvo in poslovni naslov: Lunačkova ulica 8, 8223 Mirna; parkirišče: Tržaška cesta 35, 2000 Maribor\nMatična številka: 1234567000 | Davčna številka: SI12345678\n\nTi Pogoji začnejo veljati z dnem objave na spletni strani in nadomeščajo vse prejšnje različice. Izvajalec si pridržuje pravico do sprememb brez predhodnega obvestila.' },
+      { title: 'Storitve', content: '• Cestni prevoz tovora (FTL – celotovorni prevozi, LTL – delni prevozi)\n• Mednarodna špedicija in organizacija prevozov\n• Posebni prevozi (nadgabaritni, ADR nevarno blago, vrednostni prevozi)\n• Skladiščenje in distribucija\n• Logistično svetovanje' },
       { title: 'Naročilo in sklenitev pogodbe', content: 'Naročilo je sklenjeno ob pisni potrditvi Izvajalca. Ponudbe so veljavne 5 delovnih dni.\n\nNaročnik mora navesti:\n• Točen naslov nakladanja in razkladanja\n• Vrsto, težo, dimenzije in vrednost blaga\n• Željeni datum nakladanja in rok dostave\n• Posebne zahteve (temperatura, nevarno blago itd.)' },
       { title: 'Cene in plačilo', content: 'Cene so dogovorjene individualno glede na relacijo, vrsto blaga, tip vozila in tržne razmere.\n\nPlačilni pogoji: 30 dni od datuma računa, razen če je dogovorjeno drugače. Ob zamudi Izvajalec zaračuna zakonske zamudne obresti. Izvajalec ima pravico zadržati blago v skladu z zakonskim privilegijem prevoznika.' },
       { title: 'Odgovornost Izvajalca', content: 'Izvajalec odgovarja za škodo na blagu v skladu s:\n• Konvencijo CMR (mednarodni cestni prevoz) – omejeno na 8,33 SDR/kg bruto teže\n• Zakonom o prevoznih pogodbah v cestnem prometu (domači prevoz)\n\nIzvajalec ne odgovarja za škodo zaradi višje sile, napačne embalaže, inherentnih lastnosti blaga ali napačnih navodil Naročnika.' },
@@ -989,8 +1005,8 @@ export const termsTranslations: Record<Locale, TermsTranslation> = {
     subtitle: 'Last updated: January 2025 · General terms for transport and logistics services',
     intro: 'These General Terms and Conditions govern the relationship between Begovac Spedition d.o.o. (Service Provider) and the client (Client) for transport, freight forwarding and logistics services. By placing an order, the Client confirms acceptance of these Terms.',
     sections: [
-      { title: 'General Provisions', content: 'Service Provider: Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Slovenia\nRegistration No: 1234567000 | VAT No: SI12345678\n\nThese Terms take effect upon publication on the website and supersede all previous versions. The Service Provider reserves the right to amend these Terms without prior notice.' },
-      { title: 'Services', content: '• Road freight transport (FTL – full truckload, LTL – part load)\n• International freight forwarding and transport organisation\n• Temperature-sensitive goods transport (cold chain, ATP certificate)\n• Special transports (oversized, ADR hazardous goods, valuable cargo)\n• Warehousing and distribution\n• Logistics consulting' },
+      { title: 'General Provisions', content: 'Service Provider: Begovac Spedition d.o.o., registered office & accounting: Lunačkova ulica 8, 8223 Mirna; parking: Tržaška cesta 35, 2000 Maribor, Slovenia\nRegistration No: 1234567000 | VAT No: SI12345678\n\nThese Terms take effect upon publication on the website and supersede all previous versions. The Service Provider reserves the right to amend these Terms without prior notice.' },
+      { title: 'Services', content: '• Road freight transport (FTL – full truckload, LTL – part load)\n• International freight forwarding and transport organisation\n• Special transports (oversized, ADR hazardous goods, valuable cargo)\n• Warehousing and distribution\n• Logistics consulting' },
       { title: 'Orders and Contract Formation', content: 'An order is confirmed upon written confirmation from the Service Provider. Quotes are valid for 5 business days.\n\nThe Client must provide:\n• Exact loading and unloading addresses\n• Type, weight, dimensions and value of goods\n• Desired loading date and delivery deadline\n• Special requirements (temperature, hazardous goods, etc.)' },
       { title: 'Pricing and Payment', content: 'Prices are agreed individually based on route, cargo type, vehicle type and market conditions.\n\nPayment terms: 30 days from invoice date unless otherwise agreed. Late payment incurs statutory interest. The Service Provider has the right to hold goods in accordance with the carrier\'s statutory lien.' },
       { title: 'Liability of the Service Provider', content: 'The Service Provider is liable for damage to goods in accordance with:\n• CMR Convention (international road transport) – limited to 8.33 SDR/kg gross weight\n• Domestic transport law\n\nThe Service Provider is not liable for damage due to force majeure, improper packaging, inherent nature of goods, or incorrect instructions from the Client.' },
@@ -1007,8 +1023,8 @@ export const termsTranslations: Record<Locale, TermsTranslation> = {
     subtitle: 'Última actualización: enero 2025 · Condiciones generales de servicios de transporte y logística',
     intro: 'Estas Condiciones Generales regulan la relación entre Begovac Spedition d.o.o. (Proveedor de Servicios) y el cliente (Cliente) para servicios de transporte, transitario y logística. Al realizar un pedido, el Cliente confirma la aceptación de estas Condiciones.',
     sections: [
-      { title: 'Disposiciones Generales', content: 'Proveedor: Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Eslovenia\nNº Registro: 1234567000 | NIF: SI12345678\n\nEstas Condiciones entran en vigor con su publicación en el sitio web y reemplazan todas las versiones anteriores.' },
-      { title: 'Servicios', content: '• Transporte de mercancías por carretera (FTL – carga completa, LTL – carga parcial)\n• Transitario internacional y organización de transportes\n• Transporte de mercancías sensibles a la temperatura (cadena de frío, certificado ATP)\n• Transportes especiales (sobredimensionado, mercancías peligrosas ADR, carga valiosa)\n• Almacenamiento y distribución\n• Consultoría logística' },
+      { title: 'Disposiciones Generales', content: 'Proveedor: Begovac Spedition d.o.o., contabilidad y domicilio social: Lunačkova ulica 8, 8223 Mirna; aparcamiento: Tržaška cesta 35, 2000 Maribor, Eslovenia\nNº Registro: 1234567000 | NIF: SI12345678\n\nEstas Condiciones entran en vigor con su publicación en el sitio web y reemplazan todas las versiones anteriores.' },
+      { title: 'Servicios', content: '• Transporte de mercancías por carretera (FTL – carga completa, LTL – carga parcial)\n• Transitario internacional y organización de transportes\n• Transportes especiales (sobredimensionado, mercancías peligrosas ADR, carga valiosa)\n• Almacenamiento y distribución\n• Consultoría logística' },
       { title: 'Pedidos y Formación del Contrato', content: 'Un pedido se confirma con la confirmación escrita del Proveedor de Servicios. Las cotizaciones son válidas por 5 días hábiles.\n\nEl Cliente debe proporcionar:\n• Direcciones exactas de carga y descarga\n• Tipo, peso, dimensiones y valor de la mercancía\n• Fecha de carga deseada y plazo de entrega\n• Requisitos especiales (temperatura, mercancías peligrosas, etc.)' },
       { title: 'Precios y Pago', content: 'Los precios se acuerdan individualmente según la ruta, tipo de carga, tipo de vehículo y condiciones de mercado.\n\nCondiciones de pago: 30 días desde la fecha de factura salvo acuerdo distinto. El retraso en el pago conlleva intereses legales de demora.' },
       { title: 'Responsabilidad del Proveedor', content: 'El Proveedor es responsable de los daños a la mercancía conforme a:\n• Convenio CMR (transporte internacional por carretera) – limitado a 8,33 DEG/kg de peso bruto\n• Legislación de transporte nacional\n\nEl Proveedor no es responsable por daños debidos a fuerza mayor, embalaje inadecuado o instrucciones incorrectas del Cliente.' },
@@ -1025,8 +1041,8 @@ export const termsTranslations: Record<Locale, TermsTranslation> = {
     subtitle: 'Letzte Aktualisierung: Januar 2025 · Allgemeine Geschäftsbedingungen für Transport- und Logistikdienstleistungen',
     intro: 'Diese Allgemeinen Geschäftsbedingungen regeln das Verhältnis zwischen Begovac Spedition d.o.o. (Dienstleister) und dem Kunden (Auftraggeber) für Transport-, Speditions- und Logistikdienstleistungen. Mit der Auftragserteilung bestätigt der Auftraggeber die Annahme dieser AGB.',
     sections: [
-      { title: 'Allgemeine Bestimmungen', content: 'Dienstleister: Begovac Spedition d.o.o., Glavna ulica 1, 1000 Ljubljana, Slowenien\nRegisternummer: 1234567000 | USt-IdNr.: SI12345678\n\nDiese AGB treten mit Veröffentlichung auf der Website in Kraft und ersetzen alle früheren Versionen.' },
-      { title: 'Leistungen', content: '• Straßengütertransport (FTL – Komplettladung, LTL – Stückgut)\n• Internationale Spedition und Transportorganisation\n• Transport temperaturempfindlicher Waren (Kühlkette, ATP-Zertifikat)\n• Sondertransporte (Übermaßladung, ADR-Gefahrgut, Werttransporte)\n• Lagerung und Distribution\n• Logistikberatung' },
+      { title: 'Allgemeine Bestimmungen', content: 'Dienstleister: Begovac Spedition d.o.o., Buchhaltung und Firmensitz: Lunačkova ulica 8, 8223 Mirna; Parkplatz: Tržaška cesta 35, 2000 Maribor, Slowenien\nRegisternummer: 1234567000 | USt-IdNr.: SI12345678\n\nDiese AGB treten mit Veröffentlichung auf der Website in Kraft und ersetzen alle früheren Versionen.' },
+      { title: 'Leistungen', content: '• Straßengütertransport (FTL – Komplettladung, LTL – Stückgut)\n• Internationale Spedition und Transportorganisation\n• Sondertransporte (Übermaßladung, ADR-Gefahrgut, Werttransporte)\n• Lagerung und Distribution\n• Logistikberatung' },
       { title: 'Auftragserteilung und Vertragsabschluss', content: 'Ein Auftrag gilt als bestätigt, wenn der Dienstleister eine schriftliche Auftragsbestätigung erteilt. Angebote sind 5 Werktage gültig.\n\nDer Auftraggeber muss angeben:\n• Genaue Be- und Entladeadressen\n• Art, Gewicht, Abmessungen und Wert der Ware\n• Gewünschtes Beladedatum und Lieferfrist\n• Besondere Anforderungen (Temperatur, Gefahrgut usw.)' },
       { title: 'Preise und Zahlung', content: 'Preise werden individuell nach Relation, Frachtart, Fahrzeugtyp und Marktlage vereinbart.\n\nZahlungsbedingungen: 30 Tage ab Rechnungsdatum, sofern nicht anders vereinbart. Bei Zahlungsverzug werden gesetzliche Verzugszinsen berechnet.' },
       { title: 'Haftung des Dienstleisters', content: 'Der Dienstleister haftet für Warenschäden gemäß:\n• CMR-Übereinkommen (internationaler Straßentransport) – begrenzt auf 8,33 SZR/kg Rohgewicht\n• Deutschem/slowenischem Transportrecht\n\nKeine Haftung bei höherer Gewalt, mangelhafter Verpackung, Eigenschäden der Ware oder falschen Anweisungen des Auftraggebers.' },

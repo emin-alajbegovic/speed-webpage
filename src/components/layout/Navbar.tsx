@@ -2,11 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { locales, type Locale } from '@/lib/i18n';
+import { brandLogo } from '@/lib/site-images';
 import { cn } from '@/lib/utils';
-import { Menu, X, Sun, Moon, ChevronDown, Truck } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
@@ -40,7 +42,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-[100] transition-all duration-300',
           scrolled
             ? 'bg-[var(--background)]/95 backdrop-blur-md shadow-[var(--shadow-md)] border-b border-[var(--border)]'
             : 'bg-transparent'
@@ -49,14 +51,24 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 bg-[var(--accent)] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <Truck className="w-5 h-5 text-white" strokeWidth={2} />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-lg text-[var(--foreground)] tracking-tight">Begovac</span>
-              <span className="text-xs font-medium text-[var(--accent)] tracking-widest uppercase">Spedition</span>
-            </div>
+          <Link href="/" className="flex items-center group shrink-0 mr-2">
+            <Image
+              src={brandLogo}
+              alt="Begovac Spedition"
+              width={660}
+              height={144}
+              priority
+              className={cn(
+                'h-10 sm:h-11 w-auto max-w-[min(58vw,270px)] sm:max-w-[300px] object-contain object-left transition-[filter,opacity] group-hover:opacity-90',
+                scrolled
+                  ? theme === 'dark'
+                    ? 'brightness-0 invert'
+                    : ''
+                  : theme === 'dark'
+                    ? 'brightness-0 invert opacity-[0.96]'
+                    : 'opacity-95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]'
+              )}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -100,7 +112,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-1 w-44 bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-[var(--shadow-lg)] overflow-hidden"
+                    className="absolute right-0 top-full z-[110] mt-1 w-44 bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-[var(--shadow-lg)] overflow-hidden"
                   >
                     {locales.map((lang) => (
                       <button
@@ -124,7 +136,7 @@ export default function Navbar() {
 
             <Link
               href="/kontakt"
-              className="ml-1 px-5 py-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5"
+              className="ml-1 inline-flex h-9 shrink-0 items-center justify-center px-4 text-sm font-semibold bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-lg transition-all hover:shadow-md hover:shadow-orange-500/20"
             >
               {t.nav.cta}
             </Link>
@@ -156,7 +168,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed top-[var(--navbar-height)] left-0 right-0 z-40 bg-[var(--background)]/98 backdrop-blur-md border-b border-[var(--border)] shadow-[var(--shadow-lg)] overflow-hidden"
+            className="fixed top-[var(--navbar-height)] left-0 right-0 z-[95] bg-[var(--background)]/98 backdrop-blur-md border-b border-[var(--border)] shadow-[var(--shadow-lg)] overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               {links.map((link) => (
@@ -201,7 +213,7 @@ export default function Navbar() {
       {/* Overlay */}
       {(mobileOpen || langOpen) && (
         <div
-          className="fixed inset-0 z-30"
+          className="fixed inset-0 z-[85]"
           onClick={() => { setMobileOpen(false); setLangOpen(false); }}
         />
       )}
