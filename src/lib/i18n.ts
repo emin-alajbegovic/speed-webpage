@@ -67,12 +67,10 @@ export const translations = {
       title: 'Številke govorijo',
       subtitle: 'Dvajset let predanosti odličnosti v transportu in logistiki.',
       items: [
-        { value: 20, suffix: '+', label: 'Let izkušenj' },
-        { value: 50000, suffix: '+', label: 'Dostavljenih pošiljk' },
-        { value: 35, suffix: '', label: 'Evropskih držav' },
-        { value: 98, suffix: '%', label: 'Zadovoljnih strank' },
-        { value: 120, suffix: '+', label: 'Vozil v parku' },
-        { value: 24, suffix: '/7', label: 'Podpora strankam' },
+        { value: 8, suffix: '+', label: 'Let izkušenj' },
+        { value: 15000, suffix: '+', label: 'Dostavljenih pošiljk' },
+        { value: 15, suffix: '', label: 'Evropskih držav' },
+        { value: 15, suffix: '+', label: 'Vozil v parku' },
       ],
     },
     whyUs: {
@@ -86,7 +84,7 @@ export const translations = {
         },
         {
           title: 'Izkušena ekipa',
-          description: 'Naša ekipa strokovnjakov ima več kot 20 let izkušenj v mednarodnem transportu in logistiki.',
+          description: 'Naša ekipa strokovnjakov ima več kot 8 let izkušenj v mednarodnem transportu in logistiki.',
         },
         {
           title: 'Moderna flota',
@@ -199,7 +197,7 @@ export const translations = {
     about: {
       badge: 'O podjetju',
       title: 'Vaš zanesljiv partner v logistiki',
-      subtitle: 'Begovac Spedition je slovensko transportno podjetje z več kot 20-letnimi izkušnjami v mednarodnem cestnem prevozu in špediciji.',
+      subtitle: 'Begovac Spedition je slovensko transportno podjetje z več kot 8-letnimi izkušnjami v mednarodnem cestnem prevozu in špediciji.',
       story: 'Zgodba o uspehu',
       storyText: 'Podjetje Begovac Spedition je bilo ustanovljeno z vizijo zagotavljanja zanesljivih in profesionalnih transportnih storitev. Skozi leta smo zrasli v uveljavljenega logističnega partnerja, ki pokriva celotno Evropo. Naša predanost kakovosti in zadovoljstvu strank nam je prinesla zaupanje stotine podjetij.',
       values: 'Naše vrednote',
@@ -213,7 +211,7 @@ export const translations = {
         title: 'Naša ekipa',
         subtitle: 'Strokovna in predana ekipa strokovnjakov',
         members: [
-          { name: 'Emin Begovac', role: 'Generalni direktor', bio: 'Več kot 20 let izkušenj v transportu' },
+          { name: 'Emin Begovac', role: 'Generalni direktor', bio: 'Več kot 8 let izkušenj v transportu' },
           { name: 'Petra Novak', role: 'Direktorica logistike', bio: 'Strokovnjakinja za dobavne verige' },
           { name: 'Jure Horvat', role: 'Vodja flote', bio: 'Skrbi za varnost in vzdrževanje vozil' },
           { name: 'Maja Kos', role: 'Špediterka', bio: 'Specialistka za mednarodno dokumentacijo' },
@@ -221,7 +219,7 @@ export const translations = {
       },
     },
     footer: {
-      description: 'Zanesljiv partner v mednarodnem transportu in logistiki že več kot 20 let.',
+      description: 'Zanesljiv partner v mednarodnem transportu in logistiki že več kot 8 let.',
       links: 'Hitre povezave',
       services: 'Storitve',
       contact: 'Kontakt',

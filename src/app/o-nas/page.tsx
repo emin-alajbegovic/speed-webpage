@@ -69,10 +69,10 @@ export default function AboutPage() {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { icon: Truck, value: '120+', label: 'Vozil' },
-                { icon: Users, value: '50+', label: 'Zaposlenih' },
-                { icon: MapPin, value: '35', label: 'Držav' },
-                { icon: Star, value: '98%', label: 'Zadovoljstvo' },
+                { icon: Truck, value: '15+', label: 'Vozil' },
+                { icon: Users, value: '10+', label: 'Zaposlenih' },
+                { icon: MapPin, value: '15', label: 'Držav' },
+                { icon: Star, value: '100%', label: 'Zadovoljstvo' },
               ].map(({ icon: Icon, value, label }, i) => (
                 <div key={i} className="bg-[var(--card)] border border-[var(--card-border)] rounded-2xl p-5 text-center">
                   <Icon className="w-6 h-6 text-[var(--accent)] mx-auto mb-2" />

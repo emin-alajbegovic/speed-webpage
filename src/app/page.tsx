@@ -10,7 +10,7 @@ import CTA from '@/components/home/CTA';
 
 export const metadata: Metadata = {
   title: 'Begovac Spedition – Zanesljiv partner v logistiki',
-  description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 20+ let izkušenj, 120+ vozil, pokritost 35 evropskih držav.',
+  description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 8+ let izkušenj, 15+ vozil, pokritost 15 evropskih držav.',
 };
 
 export default function HomePage() {

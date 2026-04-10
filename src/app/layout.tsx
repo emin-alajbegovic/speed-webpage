@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: 'https://begovac-spedition.com',
     siteName: 'Begovac Spedition',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
-    description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi. 20+ let izkušenj, 120+ vozil, 35 držav.',
+    description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi. 8+ let izkušenj, 15+ vozil, 15+ držav.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Begovac Spedition' }],
   },
   twitter: {
