@@ -76,10 +76,14 @@ export default function StructuredData() {
         '@type': 'LocalBusiness',
         '@id': 'https://begovac-spedition.com/#localbusiness',
         name: 'Begovac Spedition d.o.o.',
+        url: 'https://begovac-spedition.com',
         image: 'https://begovac-spedition.com/og-image.jpg',
+        logo: 'https://begovac-spedition.com/logo-signature.png',
         priceRange: '€€',
         currenciesAccepted: 'EUR',
         paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+        email: 'info@begovac-spedition.com',
+        telephone: ['+38640485905', '+38640482669'],
         address: [
           {
             '@type': 'PostalAddress',
@@ -98,16 +102,78 @@ export default function StructuredData() {
             addressCountry: 'SI',
           },
         ],
-        telephone: ['+38640485905', '+38640482669'],
         geo: {
           '@type': 'GeoCoordinates',
           latitude: 46.5547,
           longitude: 15.6467,
         },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '07:00',
+            closes: '20:00',
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: 'Saturday',
+            opens: '08:00',
+            closes: '14:00',
+          },
+        ],
         areaServed: {
           '@type': 'Place',
           name: 'Europe',
         },
+        sameAs: [
+          'https://www.facebook.com/begovacspedition',
+          'https://www.linkedin.com/company/begovac-spedition',
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Katere države pokrivate s svojimi prevozi?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pokrivamo vse države EU in širšo Evropo – skupaj 15+ destinacij. Naša mreža partnerjev zagotavlja nemoteno dostavo od Iberskega polotoka do Baltika.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Ali nudite FTL in LTL prevoze?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Da, nudimo tako celotovorni (FTL) kot delni (LTL) cestni prevoz. Prilagodimo se vaši količini blaga in časovnim zahtevam.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Kako hitro odgovorite na povpraševanje?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Na vsako povpraševanje odgovorimo v roku 2 ur. Dispečerska ekipa je dosegljiva 24 ur na dan, 7 dni v tednu.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Ali nudite sledenje pošiljkam?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Da, vse pošiljke so opremljene z GPS sledenjem. Stranke imajo stalni dostop do statusa pošiljke prek naše digitalne platforme.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Kako se obrniti na vas v nujnih primerih?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Za nujne primere pokličite dispečersko ekipo na +386 40 482 669 – dosegljivi smo 24/7, vključno z vikendi in prazniki.',
+            },
+          },
+        ],
       },
     ],
   };

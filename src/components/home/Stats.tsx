@@ -25,7 +25,12 @@ function AnimatedNumber({ value, suffix, inView }: { value: number; suffix: stri
 
   const display = value >= 10000 ? Math.round(count / 1000) + 'k' : count.toString();
 
-  return <span>{display}{suffix}</span>;
+  return (
+    <span>
+      {display}
+      {suffix}
+    </span>
+  );
 }
 
 export default function Stats() {
@@ -60,20 +65,20 @@ export default function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 max-w-3xl mx-auto w-full">
           {t.stats.items.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.09, ease: 'backOut' }}
-              className="relative group"
+              className="relative group min-h-0"
             >
-              <div className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[var(--accent)]/40 rounded-2xl p-6 text-center transition-all hover:-translate-y-1">
-                <div className="text-4xl sm:text-5xl font-black text-white mb-1">
+              <div className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[var(--accent)]/40 rounded-2xl pt-2 px-[15px] pb-[15px] text-center transition-all hover:-translate-y-1 min-h-[7.25rem] sm:min-h-[7.5rem] flex flex-col justify-center items-center">
+                <div className="text-4xl sm:text-5xl font-black text-white mb-1 tabular-nums">
                   <AnimatedNumber value={item.value} suffix={item.suffix} inView={inView} />
                 </div>
-                <div className="text-xs font-medium text-white/40 uppercase tracking-wider">
+                <div className="text-xs font-medium text-white/40 uppercase tracking-wider leading-snug">
                   {item.label}
                 </div>
               </div>

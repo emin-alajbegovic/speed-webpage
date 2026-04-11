@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <LanguageProvider>
             <Navbar />
-            <main className="relative z-0">{children}</main>
+            <main id="main-content" className="relative z-0">{children}</main>
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

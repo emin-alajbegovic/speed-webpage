@@ -65,12 +65,12 @@ export const translations = {
     },
     stats: {
       title: 'Številke govorijo',
-      subtitle: 'Dvajset let predanosti odličnosti v transportu in logistiki.',
+      subtitle: 'Zanesljivost in rast v številkah, ki jim zaupate.',
       items: [
-        { value: 8, suffix: '+', label: 'Let izkušenj' },
-        { value: 15000, suffix: '+', label: 'Dostavljenih pošiljk' },
+        { value: 8, suffix: '', label: 'Let izkušenj' },
+        { value: 15, suffix: '', label: 'Uspešnih dostav' },
         { value: 15, suffix: '', label: 'Evropskih držav' },
-        { value: 15, suffix: '+', label: 'Vozil v parku' },
+        { value: 15, suffix: '', label: 'Vozil v parku' },
       ],
     },
     whyUs: {
@@ -286,14 +286,12 @@ export const translations = {
     },
     stats: {
       title: 'Numbers speak',
-      subtitle: 'Twenty years of dedication to excellence in transport and logistics.',
+      subtitle: 'Reliability and growth in the figures you can trust.',
       items: [
-        { value: 20, suffix: '+', label: 'Years of Experience' },
-        { value: 50000, suffix: '+', label: 'Delivered Shipments' },
-        { value: 35, suffix: '', label: 'European Countries' },
-        { value: 98, suffix: '%', label: 'Satisfied Customers' },
-        { value: 120, suffix: '+', label: 'Vehicles in Fleet' },
-        { value: 24, suffix: '/7', label: 'Customer Support' },
+        { value: 8, suffix: '', label: 'Years of experience' },
+        { value: 15, suffix: '', label: 'Successful deliveries' },
+        { value: 15, suffix: '', label: 'European countries' },
+        { value: 15, suffix: '', label: 'Vehicles in fleet' },
       ],
     },
     whyUs: {
@@ -509,14 +507,12 @@ export const translations = {
     },
     stats: {
       title: 'Los números hablan',
-      subtitle: 'Veinte años de dedicación a la excelencia en transporte y logística.',
+      subtitle: 'Fiabilidad y crecimiento en cifras en las que puede confiar.',
       items: [
-        { value: 20, suffix: '+', label: 'Años de Experiencia' },
-        { value: 50000, suffix: '+', label: 'Envíos Entregados' },
-        { value: 35, suffix: '', label: 'Países Europeos' },
-        { value: 98, suffix: '%', label: 'Clientes Satisfechos' },
-        { value: 120, suffix: '+', label: 'Vehículos en Flota' },
-        { value: 24, suffix: '/7', label: 'Soporte al Cliente' },
+        { value: 8, suffix: '', label: 'Años de experiencia' },
+        { value: 15, suffix: '', label: 'Entregas exitosas' },
+        { value: 15, suffix: '', label: 'Países europeos' },
+        { value: 15, suffix: '', label: 'Vehículos en flota' },
       ],
     },
     whyUs: {
@@ -732,14 +728,12 @@ export const translations = {
     },
     stats: {
       title: 'Zahlen sprechen',
-      subtitle: 'Zwanzig Jahre Hingabe an Exzellenz in Transport und Logistik.',
+      subtitle: 'Zuverlässigkeit und Wachstum in Zahlen, denen Sie vertrauen können.',
       items: [
-        { value: 20, suffix: '+', label: 'Jahre Erfahrung' },
-        { value: 50000, suffix: '+', label: 'Zugestellte Sendungen' },
-        { value: 35, suffix: '', label: 'Europäische Länder' },
-        { value: 98, suffix: '%', label: 'Zufriedene Kunden' },
-        { value: 120, suffix: '+', label: 'Fahrzeuge im Fuhrpark' },
-        { value: 24, suffix: '/7', label: 'Kundensupport' },
+        { value: 8, suffix: '', label: 'Jahre Erfahrung' },
+        { value: 15, suffix: '', label: 'Erfolgreiche Lieferungen' },
+        { value: 15, suffix: '', label: 'Europäische Länder' },
+        { value: 15, suffix: '', label: 'Fahrzeuge im Fuhrpark' },
       ],
     },
     whyUs: {

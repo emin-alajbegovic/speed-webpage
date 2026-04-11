@@ -37,6 +37,13 @@ export default function Navbar() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[var(--accent)] focus:text-white focus:rounded-lg focus:font-semibold focus:text-sm"
+      >
+        Preskoči na vsebino
+      </a>
+
       <motion.nav
         initial={{ y: -80 }}
         animate={{ y: 0 }}
@@ -51,7 +58,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center group shrink-0 mr-2">
+          <Link href="/" aria-label="Begovac Spedition – Domov" className="flex items-center group shrink-0 mr-2">
             <Image
               src={brandLogo}
               alt="Begovac Spedition"
@@ -99,6 +106,9 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
+                aria-label="Izberi jezik"
+                aria-expanded={langOpen}
+                aria-haspopup="listbox"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
               >
                 <span>{currentLang?.flag}</span>
@@ -146,12 +156,15 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
+              aria-label="Preklopi temo"
               className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--muted-foreground)]"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Zapri meni' : 'Odpri meni'}
+              aria-expanded={mobileOpen}
               className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
