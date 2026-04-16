@@ -6,14 +6,12 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { serviceImages } from '@/lib/site-images';
 import { motion, useInView } from 'framer-motion';
-import { Truck, Globe, Warehouse, AlertTriangle, BarChart2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Truck, Globe, BarChart2, CheckCircle2, ArrowRight } from 'lucide-react';
 
-const icons = [Truck, Globe, Warehouse, AlertTriangle, BarChart2];
+const icons = [Truck, Globe, BarChart2];
 const iconGradients = [
   'from-orange-500 to-amber-400',
   'from-blue-600 to-blue-400',
-  'from-emerald-600 to-green-400',
-  'from-red-600 to-rose-400',
   'from-purple-600 to-violet-400',
 ];
 

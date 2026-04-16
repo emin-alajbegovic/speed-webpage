@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'O nas – Begovac Spedition',
     description: 'Spoznajte Begovac Spedition – slovensko transportno podjetje z 8+ letnimi izkušnjami, 15+ vozili in prisotnostjo v 15 evropskih državah.',
     url: 'https://begovac-spedition.com/o-nas',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'O podjetju Begovac Spedition' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'O podjetju Begovac Spedition' }],
   },
 };
 

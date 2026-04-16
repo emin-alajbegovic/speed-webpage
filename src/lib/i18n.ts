@@ -14,11 +14,12 @@ export const translations = {
       services: 'Storitve',
       fleet: 'Vozni park',
       about: 'O nas',
+      brand: 'Znamka',
       contact: 'Kontakt',
       cta: 'Povpraševanje',
     },
     hero: {
-      imageAlt: 'Begovac Spedition — sodoben srebrn tovornjak na cesti',
+      imageAlt: 'Begovac Spedition — tovornjak z znamko na avtocesti',
       badge: 'Zanesljiv partner v logistiki',
       title1: 'Vaš tovor,',
       title2: 'naša',
@@ -45,16 +46,6 @@ export const translations = {
           title: 'Mednarodna špedicija',
           description: 'Popolno upravljanje mednarodnih pošiljk – od dokumentacije do carinskega postopka.',
           features: ['Carinska dokumentacija', 'Sledenje pošiljk', 'Zavarovanje blaga', 'Svetovanje in podpora'],
-        },
-        {
-          title: 'Skladiščenje',
-          description: 'Sodobne skladiščne kapacitete z naprednimi sistemi upravljanja zalog.',
-          features: ['Kratkoročno in dolgoročno', 'WMS sistem', 'Komisijsko skladiščenje', 'Distribucija'],
-        },
-        {
-          title: 'Posebni prevozi',
-          description: 'Prevoz nadgabaritnih, nevarnih in vrednostnih tovorov z ustreznimi dovoljenji.',
-          features: ['Nadgabaritni prevozi', 'ADR blago', 'Vrednostni prevozi', 'Escortna vozila'],
         },
         {
           title: 'Logistično svetovanje',
@@ -112,8 +103,9 @@ export const translations = {
         { name: 'Mega Trailer', capacity: 'Do 24 ton', description: 'Idealen za visoke tovore do 3m' },
         { name: 'Tautliner', capacity: 'Do 24 ton', description: 'Stransko nalaganje za enostavno rokovanje' },
         { name: 'Flatbed', capacity: 'Do 24 ton', description: 'Nadgabaritni in posebni prevozi' },
-        { name: 'Box Truck', capacity: 'Do 8 ton', description: 'Dostava na zadnji milji' },
-        { name: 'Tanker', capacity: 'Do 25.000 L', description: 'Tekočine in kemikalije' },
+        { name: 'Box Express', capacity: 'Do 18 ton', description: 'Zaprta karoserija, hitre dostave po Evropi' },
+        { name: 'Pretovar Robe', capacity: 'Po dogovoru', description: 'Cross-docking in terminalski pretovar' },
+        { name: 'Express Pošiljke', capacity: 'Do 1,5 ton', description: 'Ekspresne dostave s kombi vozili' },
       ],
     },
     testimonials: {
@@ -150,6 +142,17 @@ export const translations = {
     partners: {
       title: 'Zaupajo nam',
     },
+    fleetPark: {
+      title: 'Naša flota na enem mestu',
+      subtitle: 'Tovornjaki in priklopniki pripravljeni za vaše pošiljke po Evropi.',
+      imageAlt: 'Begovac Spedition — sedem tovornjakov v vrsti na parkirišču',
+    },
+    routes: {
+      daily: 'Dnevno na relacijah',
+      dailyRoute: 'Slovenija – Avstrija – Nemčija – Češka',
+      weekly: 'Tedensko na relacijah',
+      weeklyRoute: 'Italija, Francija, Španija, Portugalska',
+    },
     cta: {
       title: 'Pripravljeni za sodelovanje?',
       subtitle: 'Kontaktirajte nas danes in dobite brezplačno ponudbo za vaše transportne potrebe. Naša ekipa je na voljo 24/7.',
@@ -172,7 +175,7 @@ export const translations = {
         submit: 'Pošlji povpraševanje',
         sending: 'Pošiljanje...',
         success: 'Hvala! Vaše sporočilo je bilo poslano. Odgovorimo v roku 2 ur.',
-        services: ['Cestni prevoz', 'Mednarodna špedicija', 'Skladiščenje', 'Posebni prevozi', 'Svetovanje'],
+        services: ['Cestni prevoz', 'Mednarodna špedicija', 'Svetovanje'],
         selectService: 'Izberite storitev',
       },
       info: {
@@ -218,6 +221,20 @@ export const translations = {
         ],
       },
     },
+    brandPage: {
+      badge: 'Znamka',
+      title: 'Logotip in podoba',
+      intro:
+        'Besedni znak združuje močno tipografijo BEGOVAC in ročno zapisano »Spedition«. Uporabljajte ga na svetli ali temni podlagi; na temni podlagi invertirajte v svetlo.',
+      logoTitle: 'Prenos logotipa',
+      logoHint: 'PNG z prosojnim ozadjem je primeren za splet in tisk.',
+      colorsTitle: 'Barvna shema',
+      colorAccent: 'Akcent — pomarančna (#f97316)',
+      colorDark: 'Podlaga — temno modra (#0f172a / #0a1628)',
+      fleetTitle: 'Vozila v prometu',
+      fleetText: 'Na tovornjake nanašajte celoten logotip z lokacijo in kontaktom, kot priporoča celostna grafika.',
+      cta: 'Povpraševanje',
+    },
     footer: {
       description: 'Zanesljiv partner v mednarodnem transportu in logistiki že več kot 8 let.',
       links: 'Hitre povezave',
@@ -235,11 +252,12 @@ export const translations = {
       services: 'Services',
       fleet: 'Fleet',
       about: 'About',
+      brand: 'Brand',
       contact: 'Contact',
       cta: 'Get a Quote',
     },
     hero: {
-      imageAlt: 'Begovac Spedition — modern silver truck on the road',
+      imageAlt: 'Begovac Spedition — branded truck on the highway',
       badge: 'Trusted logistics partner',
       title1: 'Your cargo,',
       title2: 'our',
@@ -266,16 +284,6 @@ export const translations = {
           title: 'International Freight',
           description: 'Complete management of international shipments – from documentation to customs clearance.',
           features: ['Customs Documentation', 'Shipment Tracking', 'Cargo Insurance', 'Consulting & Support'],
-        },
-        {
-          title: 'Warehousing',
-          description: 'Modern warehouse facilities with advanced inventory management systems.',
-          features: ['Short & Long Term', 'WMS System', 'Pick & Pack', 'Distribution'],
-        },
-        {
-          title: 'Special Transports',
-          description: 'Transport of oversized, hazardous and valuable cargo with appropriate permits.',
-          features: ['Oversized Cargo', 'ADR Goods', 'Valuable Transport', 'Escort Vehicles'],
         },
         {
           title: 'Logistics Consulting',
@@ -333,8 +341,9 @@ export const translations = {
         { name: 'Mega Trailer', capacity: 'Up to 24 tons', description: 'Ideal for high loads up to 3m' },
         { name: 'Tautliner', capacity: 'Up to 24 tons', description: 'Side loading for easy handling' },
         { name: 'Flatbed', capacity: 'Up to 24 tons', description: 'Oversized and special transports' },
-        { name: 'Box Truck', capacity: 'Up to 8 tons', description: 'Last mile delivery' },
-        { name: 'Tanker', capacity: 'Up to 25,000 L', description: 'Liquids and chemicals' },
+        { name: 'Box Express', capacity: 'Up to 18 tons', description: 'Closed body, fast deliveries across Europe' },
+        { name: 'Cargo Transshipment', capacity: 'On request', description: 'Cross-docking and terminal cargo handling' },
+        { name: 'Express Deliveries', capacity: 'Up to 1.5 tons', description: 'Fast express deliveries by van' },
       ],
     },
     testimonials: {
@@ -371,6 +380,17 @@ export const translations = {
     partners: {
       title: 'Trusted by',
     },
+    fleetPark: {
+      title: 'Our fleet at a glance',
+      subtitle: 'Trucks and trailers ready for your shipments across Europe.',
+      imageAlt: 'Begovac Spedition — seven trucks lined up in the yard',
+    },
+    routes: {
+      daily: 'Daily routes',
+      dailyRoute: 'Slovenia – Austria – Germany – Czech Republic',
+      weekly: 'Weekly routes',
+      weeklyRoute: 'Italy, France, Spain, Portugal',
+    },
     cta: {
       title: 'Ready to work together?',
       subtitle: 'Contact us today and get a free quote for your transport needs. Our team is available 24/7.',
@@ -393,7 +413,7 @@ export const translations = {
         submit: 'Send Inquiry',
         sending: 'Sending...',
         success: 'Thank you! Your message has been sent. We will respond within 2 hours.',
-        services: ['Road Transport', 'International Freight', 'Warehousing', 'Special Transports', 'Consulting'],
+        services: ['Road Transport', 'International Freight', 'Consulting'],
         selectService: 'Select a service',
       },
       info: {
@@ -439,6 +459,20 @@ export const translations = {
         ],
       },
     },
+    brandPage: {
+      badge: 'Brand',
+      title: 'Logo & identity',
+      intro:
+        'The wordmark pairs bold BEGOVAC typography with handwritten “Spedition”. Use it on light or dark backgrounds; invert on dark where needed.',
+      logoTitle: 'Download logo',
+      logoHint: 'PNG with transparency works for web and print.',
+      colorsTitle: 'Colour palette',
+      colorAccent: 'Accent — orange (#f97316)',
+      colorDark: 'Background — deep navy (#0f172a / #0a1628)',
+      fleetTitle: 'Vehicles on the road',
+      fleetText: 'Apply the full logo with location and contact on trucks, following brand guidelines.',
+      cta: 'Get a quote',
+    },
     footer: {
       description: 'Trusted partner in international transport and logistics for over 20 years.',
       links: 'Quick Links',
@@ -456,11 +490,12 @@ export const translations = {
       services: 'Servicios',
       fleet: 'Flota',
       about: 'Nosotros',
+      brand: 'Marca',
       contact: 'Contacto',
       cta: 'Cotización',
     },
     hero: {
-      imageAlt: 'Begovac Spedition — camión plateado moderno en carretera',
+      imageAlt: 'Begovac Spedition — camión con marca en carretera',
       badge: 'Socio logístico de confianza',
       title1: 'Su carga,',
       title2: 'nuestra',
@@ -487,16 +522,6 @@ export const translations = {
           title: 'Carga Internacional',
           description: 'Gestión completa de envíos internacionales – desde documentación hasta despacho aduanero.',
           features: ['Documentación Aduanera', 'Seguimiento de Envíos', 'Seguro de Carga', 'Consultoría y Soporte'],
-        },
-        {
-          title: 'Almacenamiento',
-          description: 'Instalaciones modernas con sistemas avanzados de gestión de inventario.',
-          features: ['Corto y Largo Plazo', 'Sistema WMS', 'Pick & Pack', 'Distribución'],
-        },
-        {
-          title: 'Transportes Especiales',
-          description: 'Transporte de carga sobredimensionada, peligrosa y valiosa con permisos apropiados.',
-          features: ['Carga Sobredimensionada', 'Mercancías ADR', 'Transporte de Valores', 'Vehículos de Escolta'],
         },
         {
           title: 'Consultoría Logística',
@@ -554,8 +579,9 @@ export const translations = {
         { name: 'Mega Trailer', capacity: 'Hasta 24 toneladas', description: 'Ideal para cargas altas hasta 3m' },
         { name: 'Tautliner', capacity: 'Hasta 24 toneladas', description: 'Carga lateral para fácil manejo' },
         { name: 'Plataforma', capacity: 'Hasta 24 toneladas', description: 'Transportes especiales y sobredimensionados' },
-        { name: 'Furgoneta', capacity: 'Hasta 8 toneladas', description: 'Entrega de último kilómetro' },
-        { name: 'Cisterna', capacity: 'Hasta 25.000 L', description: 'Líquidos y productos químicos' },
+        { name: 'Box Express', capacity: 'Hasta 18 toneladas', description: 'Carrocería cerrada, entregas rápidas por Europa' },
+        { name: 'Transbordo de Carga', capacity: 'A consultar', description: 'Cross-docking y manejo terminal de carga' },
+        { name: 'Entregas Express', capacity: 'Hasta 1,5 ton', description: 'Entregas rápidas en furgoneta' },
       ],
     },
     testimonials: {
@@ -592,6 +618,17 @@ export const translations = {
     partners: {
       title: 'Nos confían',
     },
+    fleetPark: {
+      title: 'Nuestra flota de un vistazo',
+      subtitle: 'Camiones y semirremolques listos para sus envíos en Europa.',
+      imageAlt: 'Begovac Spedition — siete camiones en fila en el patio',
+    },
+    routes: {
+      daily: 'Rutas diarias',
+      dailyRoute: 'Eslovenia – Austria – Alemania – República Checa',
+      weekly: 'Rutas semanales',
+      weeklyRoute: 'Italia, Francia, España, Portugal',
+    },
     cta: {
       title: '¿Listo para trabajar juntos?',
       subtitle: 'Contáctenos hoy y obtenga una cotización gratuita. Nuestro equipo está disponible 24/7.',
@@ -614,7 +651,7 @@ export const translations = {
         submit: 'Enviar Consulta',
         sending: 'Enviando...',
         success: '¡Gracias! Su mensaje ha sido enviado. Responderemos en 2 horas.',
-        services: ['Transporte por Carretera', 'Carga Internacional', 'Almacenamiento', 'Transportes Especiales', 'Consultoría'],
+        services: ['Transporte por Carretera', 'Carga Internacional', 'Consultoría'],
         selectService: 'Seleccione un servicio',
       },
       info: {
@@ -660,6 +697,20 @@ export const translations = {
         ],
       },
     },
+    brandPage: {
+      badge: 'Marca',
+      title: 'Logotipo e identidad',
+      intro:
+        'El logotipo combina la tipografía BEGOVAC con “Spedition” manuscrito. Úselo sobre fondo claro u oscuro; invierta en fondos oscuros si hace falta.',
+      logoTitle: 'Descargar logotipo',
+      logoHint: 'PNG con transparencia sirve para web e impresión.',
+      colorsTitle: 'Paleta de color',
+      colorAccent: 'Acento — naranja (#f97316)',
+      colorDark: 'Fondo — azul marino (#0f172a / #0a1628)',
+      fleetTitle: 'Vehículos en carretera',
+      fleetText: 'Aplique el logotipo completo con ubicación y contacto en los camiones según la guía de marca.',
+      cta: 'Solicitar cotización',
+    },
     footer: {
       description: 'Socio de confianza en transporte y logística internacional durante más de 20 años.',
       links: 'Enlaces Rápidos',
@@ -677,11 +728,12 @@ export const translations = {
       services: 'Leistungen',
       fleet: 'Fuhrpark',
       about: 'Über uns',
+      brand: 'Marke',
       contact: 'Kontakt',
       cta: 'Angebot',
     },
     hero: {
-      imageAlt: 'Begovac Spedition — moderner silberner Lkw auf der Straße',
+      imageAlt: 'Begovac Spedition — markierter Lkw auf der Autobahn',
       badge: 'Ihr vertrauenswürdiger Logistikpartner',
       title1: 'Ihre Fracht,',
       title2: 'unsere',
@@ -708,16 +760,6 @@ export const translations = {
           title: 'Internationale Spedition',
           description: 'Komplettes Management internationaler Sendungen – von der Dokumentation bis zur Zollabwicklung.',
           features: ['Zolldokumentation', 'Sendungsverfolgung', 'Frachtversicherung', 'Beratung & Support'],
-        },
-        {
-          title: 'Lagerung',
-          description: 'Moderne Lagereinrichtungen mit fortschrittlichen Bestandsverwaltungssystemen.',
-          features: ['Kurz- & Langzeitlagerung', 'WMS-System', 'Kommissionierung', 'Distribution'],
-        },
-        {
-          title: 'Sondertransporte',
-          description: 'Transport von Übermaß-, Gefahrgut und Werttransporten mit entsprechenden Genehmigungen.',
-          features: ['Übermaßladung', 'ADR-Güter', 'Werttransport', 'Begleitfahrzeuge'],
         },
         {
           title: 'Logistikberatung',
@@ -775,8 +817,9 @@ export const translations = {
         { name: 'Mega Trailer', capacity: 'Bis 24 Tonnen', description: 'Ideal für hohe Ladungen bis 3m' },
         { name: 'Tautliner', capacity: 'Bis 24 Tonnen', description: 'Seitenbeladung für einfaches Handling' },
         { name: 'Pritsche', capacity: 'Bis 24 Tonnen', description: 'Übermaß- und Sondertransporte' },
-        { name: 'Kleintransporter', capacity: 'Bis 8 Tonnen', description: 'Letzte Meile Lieferung' },
-        { name: 'Tankfahrzeug', capacity: 'Bis 25.000 L', description: 'Flüssigkeiten und Chemikalien' },
+        { name: 'Box Express', capacity: 'Bis 18 Tonnen', description: 'Geschlossener Aufbau, schnelle Lieferungen durch Europa' },
+        { name: 'Umladung', capacity: 'Auf Anfrage', description: 'Cross-Docking und Terminalumschlag' },
+        { name: 'Expresslieferungen', capacity: 'Bis 1,5 Tonnen', description: 'Schnelle Expresslieferungen per Transporter' },
       ],
     },
     testimonials: {
@@ -813,6 +856,17 @@ export const translations = {
     partners: {
       title: 'Vertrauen uns',
     },
+    fleetPark: {
+      title: 'Unser Fuhrpark auf einen Blick',
+      subtitle: 'Lkw und Auflieger bereit für Ihre Sendungen in Europa.',
+      imageAlt: 'Begovac Spedition — sieben Lkw in einer Reihe auf dem Hof',
+    },
+    routes: {
+      daily: 'Tägliche Relationen',
+      dailyRoute: 'Slowenien – Österreich – Deutschland – Tschechien',
+      weekly: 'Wöchentliche Relationen',
+      weeklyRoute: 'Italien, Frankreich, Spanien, Portugal',
+    },
     cta: {
       title: 'Bereit für eine Zusammenarbeit?',
       subtitle: 'Kontaktieren Sie uns noch heute und erhalten Sie ein kostenloses Angebot. Unser Team ist 24/7 verfügbar.',
@@ -835,7 +889,7 @@ export const translations = {
         submit: 'Anfrage senden',
         sending: 'Senden...',
         success: 'Danke! Ihre Nachricht wurde gesendet. Wir antworten innerhalb von 2 Stunden.',
-        services: ['Straßentransport', 'Internationale Spedition', 'Lagerung', 'Sondertransporte', 'Beratung'],
+        services: ['Straßentransport', 'Internationale Spedition', 'Beratung'],
         selectService: 'Service auswählen',
       },
       info: {
@@ -880,6 +934,20 @@ export const translations = {
           { name: 'Maja Kos', role: 'Speditionskauffrau', bio: 'Spezialistin für internationale Dokumentation' },
         ],
       },
+    },
+    brandPage: {
+      badge: 'Marke',
+      title: 'Logo & Markenauftritt',
+      intro:
+        'Das Logo verbindet die BEGOVAC-Schrift mit handgeschriebenem „Spedition“. Auf hellen oder dunklen Hintergründen einsetzen; bei Bedarf invertieren.',
+      logoTitle: 'Logo herunterladen',
+      logoHint: 'PNG mit Transparenz für Web und Druck.',
+      colorsTitle: 'Farbpalette',
+      colorAccent: 'Akzent — Orange (#f97316)',
+      colorDark: 'Hintergrund — Navy (#0f172a / #0a1628)',
+      fleetTitle: 'Fahrzeuge auf der Straße',
+      fleetText: 'Vollständiges Logo mit Standort und Kontakt auf Lkw gemäß Markenrichtlinie.',
+      cta: 'Angebot anfordern',
     },
     footer: {
       description: 'Vertrauenswürdiger Partner im internationalen Transport und Logistik seit über 20 Jahren.',

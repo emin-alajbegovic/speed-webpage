@@ -15,6 +15,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://begovac-spedition.com'),
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   title: {
     default: 'Begovac Spedition – Mednarodni transport in špedicija',
     template: '%s | Begovac Spedition',
@@ -46,13 +51,13 @@ export const metadata: Metadata = {
     siteName: 'Begovac Spedition',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
     description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi. 8+ let izkušenj, 15+ vozil, 15+ držav.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Begovac Spedition' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition — mednarodni transport' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
     description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi.',
-    images: ['/og-image.jpg'],
+    images: ['/images/og-share.jpg'],
   },
   alternates: {
     canonical: 'https://begovac-spedition.com',
@@ -71,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <StructuredData />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <LanguageProvider>
             <Navbar />

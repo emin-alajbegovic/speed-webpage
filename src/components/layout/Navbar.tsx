@@ -9,7 +9,7 @@ import { locales, type Locale } from '@/lib/i18n';
 import { brandLogo } from '@/lib/site-images';
 import { cn } from '@/lib/utils';
 import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
   { href: '/', label: t.nav.home },
@@ -25,15 +25,20 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handler);
+    handler();
+    window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
   const links = navLinks(t);
   const currentLang = locales.find(l => l.code === locale);
+
+  const isDark = mounted ? theme === 'dark' : false;
 
   return (
     <>
@@ -44,10 +49,7 @@ export default function Navbar() {
         Preskoči na vsebino
       </a>
 
-      <motion.nav
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+      <nav
         className={cn(
           'fixed top-0 left-0 right-0 z-[100] transition-all duration-300',
           scrolled
@@ -67,13 +69,11 @@ export default function Navbar() {
               priority
               className={cn(
                 'h-10 sm:h-11 w-auto max-w-[min(58vw,270px)] sm:max-w-[300px] object-contain object-left transition-[filter,opacity] group-hover:opacity-90',
-                scrolled
-                  ? theme === 'dark'
-                    ? 'brightness-0 invert'
-                    : ''
-                  : theme === 'dark'
-                    ? 'brightness-0 invert opacity-[0.96]'
-                    : 'opacity-95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]'
+                isDark
+                  ? 'brightness-0 invert'
+                  : scrolled
+                    ? 'brightness-0'
+                    : 'drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]'
               )}
             />
           </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
               className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
             {/* Language selector */}
@@ -159,7 +159,7 @@ export default function Navbar() {
               aria-label="Preklopi temo"
               className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--muted-foreground)]"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -171,7 +171,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile menu */}
       <AnimatePresence>

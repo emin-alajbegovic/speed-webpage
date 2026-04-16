@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { heroTruckImage } from '@/lib/site-images';
+import { heroBackgroundVideo, heroVideoPoster } from '@/lib/site-images';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, Shield, Award, Clock } from 'lucide-react';
 
@@ -38,6 +38,17 @@ const CountUp = ({ end, suffix }: { end: number; suffix: string }) => {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(heroBackgroundVideo, { method: 'HEAD' })
+      .then((r) => {
+        if (!cancelled && r.ok) setVideoReady(true);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
 
   const trustBadges = [
     { icon: Shield, label: 'ISO 9001' },
@@ -48,13 +59,31 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col pt-[var(--navbar-height)] overflow-hidden">
       <div className="absolute inset-0 z-0">
+        {videoReady ? (
+          <video
+            className="absolute inset-0 h-full w-full object-cover object-[75%_center] sm:object-[65%_center] rotate-180"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={heroVideoPoster}
+            onError={() => setVideoReady(false)}
+            aria-hidden
+          >
+            {/* MP4 type first — Chrome/Firefox pick this up even for .mov H.264 */}
+            <source src={heroBackgroundVideo} type="video/mp4" />
+            <source src={heroBackgroundVideo} type="video/quicktime" />
+          </video>
+        ) : null}
         <Image
-          src={heroTruckImage}
-          alt={t.hero.imageAlt}
+          src={heroVideoPoster}
+          alt={t.fleetPark.imageAlt}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[75%_center] sm:object-[65%_center]"
+          className={`object-cover object-center sm:object-[50%_55%] transition-opacity duration-700 ${videoReady ? 'opacity-0' : 'opacity-100'}`}
+          aria-hidden={videoReady}
         />
         <div
           className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--background)]/92 to-[var(--background)]/55 dark:from-[var(--background)] dark:via-[var(--background)]/88 dark:to-[var(--background)]/40"

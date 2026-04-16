@@ -14,6 +14,7 @@ const truckColors = [
   'from-slate-600/20 to-slate-400/10',
   'from-red-600/20 to-rose-400/10',
   'from-purple-600/20 to-violet-400/10',
+  'from-emerald-600/20 to-green-400/10',
 ];
 
 export default function Fleet() {
@@ -60,9 +61,9 @@ export default function Fleet() {
               transition={{ duration: 0.5, delay: i * 0.07 }}
               className="group bg-[var(--card)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-[var(--shadow-lg)] hover:border-[var(--accent)]/30 transition-all hover:-translate-y-1"
             >
-              <div className={`relative aspect-[16/9] border-b border-[var(--card-border)] overflow-hidden bg-gradient-to-br ${truckColors[i]}`}>
+              <div className={`relative aspect-[16/9] border-b border-[var(--card-border)] overflow-hidden bg-gradient-to-br ${truckColors[i % truckColors.length]}`}>
                 <Image
-                  src={fleetImages[i]}
+                  src={fleetImages[i][0]}
                   alt={`${vehicle.name} — Begovac Spedition`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

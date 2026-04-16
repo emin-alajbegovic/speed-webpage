@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
+import RoutesBanner from '@/components/home/RoutesBanner';
+import FleetParkBanner from '@/components/home/FleetParkBanner';
 import Services from '@/components/home/Services';
 import Stats from '@/components/home/Stats';
 import WhyUs from '@/components/home/WhyUs';
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Begovac Spedition – Zanesljiv partner v logistiki',
     description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 8+ let izkušenj, 15+ vozil, pokritost 15 evropskih držav.',
     url: 'https://begovac-spedition.com',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Begovac Spedition – Mednarodni transport in špedicija' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition — mednarodni transport' }],
   },
 };
 
@@ -48,6 +50,8 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <Hero />
+      <RoutesBanner />
+      <FleetParkBanner />
       <Partners />
       <Services />
       <Stats />

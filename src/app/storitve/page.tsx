@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Transportne storitve – Begovac Spedition',
     description: 'Celovite logistične storitve: FTL in LTL cestni prevoz, mednarodna špedicija, skladiščenje, posebni prevozi in logistično svetovanje po vsej Evropi.',
     url: 'https://begovac-spedition.com/storitve',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Begovac Spedition – Storitve' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition – Storitve' }],
   },
 };
 

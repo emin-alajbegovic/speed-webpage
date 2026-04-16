@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Vozni park – Begovac Spedition',
     description: 'Naša flota vključuje Mega Trailerje, Tautlinerje, Flatbede, Box Truckove in Tankerje. Sodobna, redno vzdrževana vozila za vsako vrsto tovora.',
     url: 'https://begovac-spedition.com/vozni-park',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Vozni park – Begovac Spedition' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Vozni park – Begovac Spedition' }],
   },
 };
 

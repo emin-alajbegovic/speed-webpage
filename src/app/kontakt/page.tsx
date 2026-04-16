@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Kontakt – Begovac Spedition',
     description: 'Kontaktirajte Begovac Spedition. Pokličite +386 40 482 669 ali pišite na info@begovac-spedition.com. Dispečerstvo dosegljivo 24/7.',
     url: 'https://begovac-spedition.com/kontakt',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Kontakt – Begovac Spedition' }],
+    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Kontakt – Begovac Spedition' }],
   },
 };
 
