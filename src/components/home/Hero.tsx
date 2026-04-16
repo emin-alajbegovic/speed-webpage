@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         {videoReady ? (
           <video
-            className="absolute inset-0 h-full w-full object-cover object-[75%_center] sm:object-[65%_center] rotate-180"
+            className="absolute inset-0 h-full w-full object-cover object-[75%_center] sm:object-[65%_center]"
             autoPlay
             muted
             loop
@@ -71,9 +71,7 @@ export default function Hero() {
             onError={() => setVideoReady(false)}
             aria-hidden
           >
-            {/* MP4 type first — Chrome/Firefox pick this up even for .mov H.264 */}
             <source src={heroBackgroundVideo} type="video/mp4" />
-            <source src={heroBackgroundVideo} type="video/quicktime" />
           </video>
         ) : null}
         <Image

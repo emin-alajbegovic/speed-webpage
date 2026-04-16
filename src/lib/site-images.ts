@@ -10,8 +10,8 @@ export const heroBrandedTruck = '/images/hero-branded-truck.png';
 /** Poster while hero video loads (seven trucks). */
 export const heroVideoPoster = '/images/fleet-park-lineup.png';
 
-/** Single hero background clip (all three originals were identical). */
-export const heroBackgroundVideo = '/video/hero-2685.mov';
+/** Single hero background clip — H.264 MP4, no rotation metadata, all browsers. */
+export const heroBackgroundVideo = '/video/hero.mp4';
 
 /** Fleet lineup / seven trucks (same file as hero poster). */
 export const fleetParkLineup = '/images/fleet-park-lineup.png';
