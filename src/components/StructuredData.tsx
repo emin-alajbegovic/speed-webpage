@@ -4,13 +4,13 @@ export default function StructuredData() {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://begovac-spedition.com/#organization',
+        '@id': 'https://spedition-begovac.com/#organization',
         name: 'Begovac Spedition d.o.o.',
-        url: 'https://begovac-spedition.com',
-        logo: 'https://begovac-spedition.com/logo-signature.png',
+        url: 'https://spedition-begovac.com',
+        logo: 'https://spedition-begovac.com/logo-signature.png',
         description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi.',
         telephone: ['+38640485905', '+38640482669'],
-        email: 'info@begovac-spedition.com',
+        email: 'info@spedition-begovac.com',
         address: [
           {
             '@type': 'PostalAddress',
@@ -66,23 +66,23 @@ export default function StructuredData() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://begovac-spedition.com/#website',
-        url: 'https://begovac-spedition.com',
+        '@id': 'https://spedition-begovac.com/#website',
+        url: 'https://spedition-begovac.com',
         name: 'Begovac Spedition',
-        publisher: { '@id': 'https://begovac-spedition.com/#organization' },
+        publisher: { '@id': 'https://spedition-begovac.com/#organization' },
         inLanguage: ['sl', 'en', 'de', 'es'],
       },
       {
         '@type': 'LocalBusiness',
-        '@id': 'https://begovac-spedition.com/#localbusiness',
+        '@id': 'https://spedition-begovac.com/#localbusiness',
         name: 'Begovac Spedition d.o.o.',
-        url: 'https://begovac-spedition.com',
-        image: 'https://begovac-spedition.com/images/og-share.jpg',
-        logo: 'https://begovac-spedition.com/logo-signature.png',
+        url: 'https://spedition-begovac.com',
+        image: 'https://spedition-begovac.com/images/og-share.jpg',
+        logo: 'https://spedition-begovac.com/logo-signature.png',
         priceRange: '€€',
         currenciesAccepted: 'EUR',
         paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-        email: 'info@begovac-spedition.com',
+        email: 'info@spedition-begovac.com',
         telephone: ['+38640485905', '+38640482669'],
         address: [
           {

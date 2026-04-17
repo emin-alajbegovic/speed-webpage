@@ -15,8 +15,8 @@ export default function ContactClient() {
     {
       icon: Mail,
       label: t.contact.info.email,
-      value: 'info@begovac-spedition.com',
-      href: 'mailto:info@begovac-spedition.com',
+      value: 'info@spedition-begovac.com',
+      href: 'mailto:info@spedition-begovac.com',
       color: 'text-emerald-500',
       bg: 'bg-emerald-500/10',
     },

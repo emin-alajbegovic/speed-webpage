@@ -177,8 +177,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#f97316] shrink-0" />
-                <a href="mailto:info@begovac-spedition.com" className="text-sm text-white/60 hover:text-[#f97316] transition-colors break-all">
-                  info@begovac-spedition.com
+                <a href="mailto:info@spedition-begovac.com" className="text-sm text-white/60 hover:text-[#f97316] transition-colors break-all">
+                  info@spedition-begovac.com
                 </a>
               </li>
             </ul>

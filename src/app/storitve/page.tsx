@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Transportne storitve – Cestni prevoz, Špedicija, Skladiščenje',
   description: 'Celovite logistične storitve: FTL in LTL cestni prevoz, mednarodna špedicija, skladiščenje, posebni prevozi in logistično svetovanje po vsej Evropi.',
   alternates: {
-    canonical: 'https://begovac-spedition.com/storitve',
+    canonical: 'https://spedition-begovac.com/storitve',
   },
   openGraph: {
     title: 'Transportne storitve – Begovac Spedition',
     description: 'Celovite logistične storitve: FTL in LTL cestni prevoz, mednarodna špedicija, skladiščenje, posebni prevozi in logistično svetovanje po vsej Evropi.',
-    url: 'https://begovac-spedition.com/storitve',
+    url: 'https://spedition-begovac.com/storitve',
     images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition – Storitve' }],
   },
 };
@@ -19,8 +19,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://begovac-spedition.com' },
-    { '@type': 'ListItem', position: 2, name: 'Storitve', item: 'https://begovac-spedition.com/storitve' },
+    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://spedition-begovac.com' },
+    { '@type': 'ListItem', position: 2, name: 'Storitve', item: 'https://spedition-begovac.com/storitve' },
   ],
 };
 
@@ -36,7 +36,7 @@ const servicesSchema = {
         '@type': 'Service',
         name: 'Cestni prevoz',
         description: 'Hitri in zanesljivi prevozi tovora po vsej Evropi. FTL in LTL rešitve za vsako potrebo.',
-        provider: { '@id': 'https://begovac-spedition.com/#organization' },
+        provider: { '@id': 'https://spedition-begovac.com/#organization' },
         areaServed: { '@type': 'Place', name: 'Europe' },
       },
     },
@@ -47,7 +47,7 @@ const servicesSchema = {
         '@type': 'Service',
         name: 'Mednarodna špedicija',
         description: 'Popolno upravljanje mednarodnih pošiljk – od dokumentacije do carinskega postopka.',
-        provider: { '@id': 'https://begovac-spedition.com/#organization' },
+        provider: { '@id': 'https://spedition-begovac.com/#organization' },
         areaServed: { '@type': 'Place', name: 'Europe' },
       },
     },
@@ -58,7 +58,7 @@ const servicesSchema = {
         '@type': 'Service',
         name: 'Skladiščenje',
         description: 'Sodobne skladiščne kapacitete z naprednimi sistemi upravljanja zalog.',
-        provider: { '@id': 'https://begovac-spedition.com/#organization' },
+        provider: { '@id': 'https://spedition-begovac.com/#organization' },
       },
     },
     {
@@ -68,7 +68,7 @@ const servicesSchema = {
         '@type': 'Service',
         name: 'Posebni prevozi',
         description: 'Prevoz nadgabaritnih, nevarnih in vrednostnih tovorov z ustreznimi dovoljenji.',
-        provider: { '@id': 'https://begovac-spedition.com/#organization' },
+        provider: { '@id': 'https://spedition-begovac.com/#organization' },
         areaServed: { '@type': 'Place', name: 'Europe' },
       },
     },
@@ -79,7 +79,7 @@ const servicesSchema = {
         '@type': 'Service',
         name: 'Logistično svetovanje',
         description: 'Optimizacija vaše dobavne verige in znižanje stroškov transporta.',
-        provider: { '@id': 'https://begovac-spedition.com/#organization' },
+        provider: { '@id': 'https://spedition-begovac.com/#organization' },
       },
     },
   ],

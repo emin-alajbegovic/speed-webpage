@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Pogoji poslovanja – Splošni pogoji',
   description: 'Splošni pogoji poslovanja podjetja Begovac Spedition d.o.o. za transportne in logistične storitve. Preberite pravice in obveznosti pogodbenih strank.',
   alternates: {
-    canonical: 'https://begovac-spedition.com/pogoji-poslovanja',
+    canonical: 'https://spedition-begovac.com/pogoji-poslovanja',
   },
   robots: {
     index: true,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pogoji poslovanja – Begovac Spedition',
     description: 'Splošni pogoji poslovanja podjetja Begovac Spedition d.o.o. za transportne in logistične storitve.',
-    url: 'https://begovac-spedition.com/pogoji-poslovanja',
+    url: 'https://spedition-begovac.com/pogoji-poslovanja',
     images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Pogoji poslovanja – Begovac Spedition' }],
   },
 };
@@ -23,8 +23,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://begovac-spedition.com' },
-    { '@type': 'ListItem', position: 2, name: 'Pogoji poslovanja', item: 'https://begovac-spedition.com/pogoji-poslovanja' },
+    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://spedition-begovac.com' },
+    { '@type': 'ListItem', position: 2, name: 'Pogoji poslovanja', item: 'https://spedition-begovac.com/pogoji-poslovanja' },
   ],
 };
 

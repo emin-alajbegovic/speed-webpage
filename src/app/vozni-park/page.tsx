@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Vozni park – Moderna flota za vsak prevoz',
   description: 'Naša flota vključuje Mega Trailerje, Tautlinerje, Flatbede, Box Truckove in Tankerje. Sodobna, redno vzdrževana vozila za vsako vrsto tovora po Evropi.',
   alternates: {
-    canonical: 'https://begovac-spedition.com/vozni-park',
+    canonical: 'https://spedition-begovac.com/vozni-park',
   },
   openGraph: {
     title: 'Vozni park – Begovac Spedition',
     description: 'Naša flota vključuje Mega Trailerje, Tautlinerje, Flatbede, Box Truckove in Tankerje. Sodobna, redno vzdrževana vozila za vsako vrsto tovora.',
-    url: 'https://begovac-spedition.com/vozni-park',
+    url: 'https://spedition-begovac.com/vozni-park',
     images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Vozni park – Begovac Spedition' }],
   },
 };
@@ -19,8 +19,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://begovac-spedition.com' },
-    { '@type': 'ListItem', position: 2, name: 'Vozni park', item: 'https://begovac-spedition.com/vozni-park' },
+    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://spedition-begovac.com' },
+    { '@type': 'ListItem', position: 2, name: 'Vozni park', item: 'https://spedition-begovac.com/vozni-park' },
   ],
 };
 

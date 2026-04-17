@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   title: 'Begovac Spedition – Zanesljiv partner v logistiki',
   description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 8+ let izkušenj, 15+ vozil, pokritost 15 evropskih držav. FTL, LTL in posebni prevozi.',
   alternates: {
-    canonical: 'https://begovac-spedition.com',
+    canonical: 'https://spedition-begovac.com',
   },
   openGraph: {
     title: 'Begovac Spedition – Zanesljiv partner v logistiki',
     description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 8+ let izkušenj, 15+ vozil, pokritost 15 evropskih držav.',
-    url: 'https://begovac-spedition.com',
+    url: 'https://spedition-begovac.com',
     images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition — mednarodni transport' }],
   },
 };
@@ -28,19 +28,19 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://begovac-spedition.com' },
+    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://spedition-begovac.com' },
   ],
 };
 
 const webPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://begovac-spedition.com/',
-  url: 'https://begovac-spedition.com',
+  '@id': 'https://spedition-begovac.com/',
+  url: 'https://spedition-begovac.com',
   name: 'Begovac Spedition – Zanesljiv partner v logistiki',
   description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi.',
-  isPartOf: { '@id': 'https://begovac-spedition.com/#website' },
-  about: { '@id': 'https://begovac-spedition.com/#organization' },
+  isPartOf: { '@id': 'https://spedition-begovac.com/#website' },
+  about: { '@id': 'https://spedition-begovac.com/#organization' },
   inLanguage: 'sl',
 };
 

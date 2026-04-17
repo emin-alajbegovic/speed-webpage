@@ -3,14 +3,14 @@ import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
   title: 'Kontakt – Stopite v stik z nami',
-  description: 'Kontaktirajte Begovac Spedition. Pokličite +386 40 482 669 ali pišite na info@begovac-spedition.com. Dispečerstvo dosegljivo 24/7. Odgovorimo v 2 urah.',
+  description: 'Kontaktirajte Begovac Spedition. Pokličite +386 40 482 669 ali pišite na info@spedition-begovac.com. Dispečerstvo dosegljivo 24/7. Odgovorimo v 2 urah.',
   alternates: {
-    canonical: 'https://begovac-spedition.com/kontakt',
+    canonical: 'https://spedition-begovac.com/kontakt',
   },
   openGraph: {
     title: 'Kontakt – Begovac Spedition',
-    description: 'Kontaktirajte Begovac Spedition. Pokličite +386 40 482 669 ali pišite na info@begovac-spedition.com. Dispečerstvo dosegljivo 24/7.',
-    url: 'https://begovac-spedition.com/kontakt',
+    description: 'Kontaktirajte Begovac Spedition. Pokličite +386 40 482 669 ali pišite na info@spedition-begovac.com. Dispečerstvo dosegljivo 24/7.',
+    url: 'https://spedition-begovac.com/kontakt',
     images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Kontakt – Begovac Spedition' }],
   },
 };
@@ -19,25 +19,25 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://begovac-spedition.com' },
-    { '@type': 'ListItem', position: 2, name: 'Kontakt', item: 'https://begovac-spedition.com/kontakt' },
+    { '@type': 'ListItem', position: 1, name: 'Domov', item: 'https://spedition-begovac.com' },
+    { '@type': 'ListItem', position: 2, name: 'Kontakt', item: 'https://spedition-begovac.com/kontakt' },
   ],
 };
 
 const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  '@id': 'https://begovac-spedition.com/kontakt',
-  url: 'https://begovac-spedition.com/kontakt',
+  '@id': 'https://spedition-begovac.com/kontakt',
+  url: 'https://spedition-begovac.com/kontakt',
   name: 'Kontakt – Begovac Spedition',
   description: 'Stopite v stik z Begovac Spedition. Na voljo 24/7.',
-  publisher: { '@id': 'https://begovac-spedition.com/#organization' },
+  publisher: { '@id': 'https://spedition-begovac.com/#organization' },
   inLanguage: 'sl',
   mainEntity: {
     '@type': 'Organization',
     name: 'Begovac Spedition d.o.o.',
     telephone: ['+38640485905', '+38640482669'],
-    email: 'info@begovac-spedition.com',
+    email: 'info@spedition-begovac.com',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Lunačkova ulica 8',

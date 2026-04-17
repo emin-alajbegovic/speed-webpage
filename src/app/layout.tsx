@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://begovac-spedition.com'),
+  metadataBase: new URL('https://spedition-begovac.com'),
   icons: {
     icon: '/icon.svg',
     shortcut: '/icon.svg',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'sl_SI',
-    url: 'https://begovac-spedition.com',
+    url: 'https://spedition-begovac.com',
     siteName: 'Begovac Spedition',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
     description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi. 8+ let izkušenj, 15+ vozil, 15+ držav.',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ['/images/og-share.jpg'],
   },
   alternates: {
-    canonical: 'https://begovac-spedition.com',
+    canonical: 'https://spedition-begovac.com',
   },
 };
 
