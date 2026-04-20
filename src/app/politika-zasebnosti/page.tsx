@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Politika zasebnosti – Begovac Spedition',
     description: 'Politika zasebnosti podjetja Begovac Spedition d.o.o. Varstvo osebnih podatkov v skladu z GDPR.',
     url: 'https://spedition-begovac.com/politika-zasebnosti',
-    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Politika zasebnosti – Begovac Spedition' }],
+    images: [{ url: '/images/hero-branded-truck.png', width: 1200, height: 630, alt: 'Politika zasebnosti – Begovac Spedition' }],
   },
 };
 

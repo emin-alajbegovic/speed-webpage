@@ -2,7 +2,7 @@
 export const brandLogo = '/logo-signature.png';
 
 /** Social / Open Graph preview (1200×630). */
-export const ogShareImage = '/images/og-share.jpg';
+export const ogShareImage = '/images/hero-branded-truck.png';
 
 /** Hero: branded truck photo (fallback when video off or unsupported). */
 export const heroBrandedTruck = '/images/hero-branded-truck.png';

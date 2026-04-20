@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Pogoji poslovanja – Begovac Spedition',
     description: 'Splošni pogoji poslovanja podjetja Begovac Spedition d.o.o. za transportne in logistične storitve.',
     url: 'https://spedition-begovac.com/pogoji-poslovanja',
-    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Pogoji poslovanja – Begovac Spedition' }],
+    images: [{ url: '/images/hero-branded-truck.png', width: 1200, height: 630, alt: 'Pogoji poslovanja – Begovac Spedition' }],
   },
 };
 

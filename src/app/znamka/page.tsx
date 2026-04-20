@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Znamka – Begovac Spedition',
     description: 'Logotip, barve in uporaba znamke na vozilih.',
     url: 'https://spedition-begovac.com/znamka',
-    images: [{ url: '/images/og-share.jpg', width: 1200, height: 630, alt: 'Begovac Spedition — znamka' }],
+    images: [{ url: '/images/hero-branded-truck.png', width: 1200, height: 630, alt: 'Begovac Spedition — znamka' }],
   },
 };
 
