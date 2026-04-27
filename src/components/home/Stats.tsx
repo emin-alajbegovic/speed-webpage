@@ -23,7 +23,10 @@ function AnimatedNumber({ value, suffix, inView }: { value: number; suffix: stri
     requestAnimationFrame(animate);
   }, [inView, value]);
 
-  const display = value >= 10000 ? Math.round(count / 1000) + 'k' : count.toString();
+  let display: string;
+  if (value >= 1000000) display = (count / 1000000).toFixed(1) + 'm';
+  else if (value >= 10000) display = Math.round(count / 1000) + 'k';
+  else display = count.toString();
 
   return (
     <span>

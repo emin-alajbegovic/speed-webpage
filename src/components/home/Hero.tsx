@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { heroBackgroundVideo, heroVideoPoster } from '@/lib/site-images';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Shield, Award, Clock } from 'lucide-react';
+import { ArrowRight, Clock, AlertTriangle, CheckCircle, MapPin, Award } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,7 +28,11 @@ const CountUp = ({ end, suffix }: { end: number; suffix: string }) => {
     const timer = setInterval(() => {
       start = Math.min(start + step, end);
       const n = Math.floor(start);
-      el.textContent = (end >= 10000 ? Math.floor(n / 1000) + 'k' : String(n)) + suffix;
+      let display: string;
+      if (end >= 1000000) display = (n / 1000000).toFixed(1) + 'm';
+      else if (end >= 10000) display = Math.floor(n / 1000) + 'k';
+      else display = String(Math.floor(n));
+      el.textContent = display + suffix;
       if (start >= end) clearInterval(timer);
     }, 16);
     return () => clearInterval(timer);
@@ -51,10 +55,12 @@ export default function Hero() {
   }, []);
 
   const trustBadges = [
-    { icon: Shield, label: 'ISO 9001' },
-    { icon: Award, label: 'EUR.1' },
-    { icon: Clock, label: '24/7' },
-  ];
+    { icon: AlertTriangle, label: t.hero.badgeAdr },
+    { icon: CheckCircle, label: t.hero.badgeXl },
+    { icon: MapPin, label: t.hero.badgeGps },
+    { icon: Award, label: t.hero.trust100 },
+    { icon: Clock, label: t.hero.badge247 },
+  ] as const;
 
   return (
     <section className="relative min-h-screen flex flex-col pt-[var(--navbar-height)] overflow-hidden">
@@ -76,7 +82,7 @@ export default function Hero() {
         ) : null}
         <Image
           src={heroVideoPoster}
-          alt={t.fleetPark.imageAlt}
+          alt={t.hero.imageAlt}
           fill
           priority
           sizes="100vw"
@@ -145,7 +151,7 @@ export default function Hero() {
           >
             {trustBadges.map(({ icon: Icon, label }) => (
               <div
-                key={label}
+                key={String(label)}
                 className="flex items-center gap-1.5 pt-2 pr-[15px] pb-[15px] pl-[15px] bg-[var(--card)] border border-[var(--border)] rounded-lg text-xs font-semibold text-[var(--muted-foreground)]"
               >
                 <Icon className="w-3.5 h-3.5 text-[var(--accent)]" />
@@ -188,8 +194,8 @@ export default function Hero() {
             {[
               { value: 8, suffix: '', label: t.hero.stat1 },
               { value: 15, suffix: '', label: t.hero.stat2 },
-              { value: 15, suffix: '', label: t.hero.stat3 },
-              { value: 15, suffix: '', label: t.hero.stat4 },
+              { value: 12, suffix: '', label: t.hero.stat3 },
+              { value: 1200000, suffix: '', label: t.hero.stat4 },
             ].map((stat, i) => (
               <div key={i} className="text-center pt-2 px-[15px] pb-[15px]">
                 <div className="text-3xl sm:text-4xl font-black text-[var(--foreground)] mb-1">
@@ -212,7 +218,9 @@ export default function Hero() {
         className="pointer-events-none absolute bottom-5 right-5 z-[1] flex flex-col items-center gap-1.5 max-[480px]:hidden"
         aria-hidden
       >
-        <span className="text-[10px] text-[var(--muted-foreground)]/70 tracking-widest uppercase">Scroll</span>
+        <span className="text-[10px] text-[var(--muted-foreground)]/70 tracking-widest uppercase">
+          {t.hero.scrollHint}
+        </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

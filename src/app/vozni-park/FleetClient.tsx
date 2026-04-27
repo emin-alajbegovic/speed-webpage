@@ -7,7 +7,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Weight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { fleetImages, heroTruckImage } from '@/lib/site-images';
+import { heroBrandedTruck } from '@/lib/site-images';
+
+// specs are now sourced from t.fleet.items[i].specs
 
 const truckGradients = [
   'from-orange-500/15 to-amber-400/5',
@@ -36,16 +38,8 @@ const truckBadges = [
   'bg-emerald-600',
 ];
 
-const truckSpecs = [
-  ['Dolžina: 13.6m', 'Višina: 3.0m', 'Širina: 2.48m', 'Vzmetenje: pnevmatsko'],
-  ['Dolžina: 13.6m', 'Strani: 3x zložljive', 'Pokrov: tarpaulin', 'Nakladanje: zadaj/strani'],
-  ['Dolžina: do 20m', 'Višina: neomejena', 'Spremljevalni escort', 'Posebna dovoljenja'],
-  ['Dolžina: 13.6m', 'Višina: 2.75m', 'Tovornost: do 18t', 'Zaprta karoserija'],
-  ['Cross-docking', 'Terminalske storitve', 'Raztovarjanje in nakladanje', 'Celotna EU'],
-  ['Tovornost: do 1.5t', 'Volumen: 12m³', 'Same-day dostava', 'Ekspresne pošiljke'],
-];
 
-export default function FleetClient() {
+export default function FleetClient({ galleryImages }: { galleryImages: string[][] }) {
   const { t } = useLanguage();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -65,14 +59,14 @@ export default function FleetClient() {
   function prevImage(e: React.MouseEvent) {
     e.stopPropagation();
     if (selected === null) return;
-    const len = fleetImages[selected].length;
+    const len = galleryImages[selected].length;
     setGalleryIndex(g => (g - 1 + len) % len);
   }
 
   function nextImage(e: React.MouseEvent) {
     e.stopPropagation();
     if (selected === null) return;
-    const len = fleetImages[selected].length;
+    const len = galleryImages[selected].length;
     setGalleryIndex(g => (g + 1) % len);
   }
 
@@ -83,7 +77,7 @@ export default function FleetClient() {
         <div className="absolute inset-0 hero-gradient grid-pattern" />
         <div className="absolute right-0 top-0 bottom-0 w-full max-w-xl opacity-[0.14] dark:opacity-[0.22] pointer-events-none hidden sm:block">
           <Image
-            src={heroTruckImage}
+            src={heroBrandedTruck}
             alt=""
             fill
             sizes="(max-width: 1280px) 40vw, 576px"
@@ -128,23 +122,25 @@ export default function FleetClient() {
               >
                 <div className={`relative aspect-[16/9] bg-gradient-to-br ${truckGradients[i % truckGradients.length]} overflow-hidden`}>
                   <Image
-                    src={fleetImages[i][0]}
+                    src={galleryImages[i][0]}
                     alt={`${vehicle.name} — Begovac Spedition`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" aria-hidden />
-                  {fleetImages[i].length > 1 && (
+                  {galleryImages[i].length > 1 && (
                     <div className="absolute bottom-3 left-3 flex gap-1">
-                      {fleetImages[i].map((_, dot) => (
+                      {galleryImages[i].map((_, dot) => (
                         <span key={dot} className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       ))}
                     </div>
                   )}
-                  <div className={cn('absolute top-3 right-3 px-2.5 py-1 text-white text-xs font-bold rounded-full shadow-md', truckBadges[i % truckBadges.length])}>
-                    {vehicle.capacity}
-                  </div>
+                  {'capacity' in vehicle && vehicle.capacity && (
+                    <div className={cn('absolute top-3 right-3 px-2.5 py-1 text-white text-xs font-bold rounded-full shadow-md', truckBadges[i % truckBadges.length])}>
+                      {vehicle.capacity}
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-5">
@@ -154,7 +150,7 @@ export default function FleetClient() {
                   </div>
                   <p className="text-sm text-[var(--muted-foreground)] mb-3">{vehicle.description}</p>
                   <button className="text-xs font-semibold text-[var(--accent)] flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Tehnični podatki <ArrowRight className="w-3 h-3" />
+                    {t.fleet.techDataLabel} <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
               </motion.div>
@@ -185,9 +181,11 @@ export default function FleetClient() {
                   <h2 className="text-2xl font-black text-[var(--foreground)]">
                     {t.fleet.items[selected].name}
                   </h2>
-                  <p className="text-sm text-[var(--muted-foreground)] mt-1">
-                    {t.fleet.items[selected].capacity}
-                  </p>
+                  {'capacity' in t.fleet.items[selected] && (
+                    <p className="text-sm text-[var(--muted-foreground)] mt-1">
+                      {(t.fleet.items[selected] as { capacity: string }).capacity}
+                    </p>
+                  )}
                 </div>
                 <button
                   onClick={closeModal}
@@ -201,7 +199,7 @@ export default function FleetClient() {
               {/* Gallery */}
               <div className="relative aspect-video rounded-xl overflow-hidden mb-5 ring-1 ring-[var(--card-border)]">
                 <Image
-                  src={fleetImages[selected][galleryIndex]}
+                  src={galleryImages[selected][galleryIndex]}
                   alt={`${t.fleet.items[selected].name} — Begovac Spedition`}
                   fill
                   sizes="(max-width: 512px) 100vw, 512px"
@@ -209,7 +207,7 @@ export default function FleetClient() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" aria-hidden />
 
-                {fleetImages[selected].length > 1 && (
+                {galleryImages[selected].length > 1 && (
                   <>
                     <button
                       onClick={prevImage}
@@ -226,7 +224,7 @@ export default function FleetClient() {
                       <ChevronRight className="w-4 h-4 text-white" />
                     </button>
                     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-                      {fleetImages[selected].map((_, dot) => (
+                      {galleryImages[selected].map((_, dot) => (
                         <button
                           key={dot}
                           onClick={e => { e.stopPropagation(); setGalleryIndex(dot); }}
@@ -245,9 +243,9 @@ export default function FleetClient() {
                 {t.fleet.items[selected].description}
               </p>
 
-              <h3 className="font-bold text-sm text-[var(--foreground)] mb-3">Tehnični podatki:</h3>
+              <h3 className="font-bold text-sm text-[var(--foreground)] mb-3">{t.fleet.techDataLabel}</h3>
               <ul className="space-y-2 mb-6">
-                {truckSpecs[selected].map((spec, i) => (
+                {(t.fleet.items[selected] as unknown as { specs: readonly string[] }).specs.map((spec, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-[var(--muted-foreground)]">
                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
                     {spec}
@@ -260,7 +258,7 @@ export default function FleetClient() {
                 onClick={closeModal}
                 className="flex items-center justify-center gap-2 px-6 py-3 bg-[var(--accent)] text-white font-semibold text-sm rounded-xl hover:bg-[var(--accent-hover)] transition-all"
               >
-                Zahtevajte ponudbo
+                {t.fleet.requestQuote}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
@@ -272,16 +270,16 @@ export default function FleetClient() {
       <section className="py-16 bg-[var(--muted)]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[var(--foreground)] mb-4">
-            Iščete pravo vozilo za vašo pošiljko?
+            {t.fleet.ctaTitle}
           </h2>
           <p className="text-[var(--muted-foreground)] mb-6">
-            Naši strokovnjaki vam bodo pomagali najti idealno rešitev za vaš tovor.
+            {t.fleet.ctaSubtitle}
           </p>
           <Link
             href="/kontakt"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--accent)] text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] transition-all hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-1"
           >
-            Kontaktirajte nas
+            {t.fleet.ctaButton}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

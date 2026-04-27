@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
 import RoutesBanner from '@/components/home/RoutesBanner';
-import FleetParkBanner from '@/components/home/FleetParkBanner';
 import Services from '@/components/home/Services';
 import Stats from '@/components/home/Stats';
 import WhyUs from '@/components/home/WhyUs';
-import Fleet from '@/components/home/Fleet';
-import Testimonials from '@/components/home/Testimonials';
+import FleetWrapper from '@/components/home/FleetWrapper';
 import Partners from '@/components/home/Partners';
 import CTA from '@/components/home/CTA';
 
@@ -51,13 +49,11 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <Hero />
       <RoutesBanner />
-      <FleetParkBanner />
       <Partners />
       <Services />
       <Stats />
       <WhyUs />
-      <Fleet />
-      <Testimonials />
+      <FleetWrapper />
       <CTA />
     </>
   );

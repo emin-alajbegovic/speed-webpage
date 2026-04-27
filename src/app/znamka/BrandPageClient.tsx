@@ -111,7 +111,7 @@ export default function BrandPageClient() {
             <div className="relative rounded-2xl overflow-hidden border border-[var(--card-border)] aspect-[4/3] bg-[var(--card)]">
               <Image
                 src={fleetParkLineup}
-                alt={t.fleetPark.imageAlt}
+                alt="Begovac Spedition — flota tovornjakov"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"

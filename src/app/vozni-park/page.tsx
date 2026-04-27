@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import FleetClient from './FleetClient';
+import FleetClientWrapper from './FleetClientWrapper';
 
 export const metadata: Metadata = {
   title: 'Vozni park – Moderna flota za vsak prevoz',
@@ -32,11 +32,11 @@ const fleetSchema = {
   itemListElement: [
     {
       '@type': 'ListItem',
-      position: 1,
+      position: 1,  
       item: {
         '@type': 'Vehicle',
         name: 'Mega Trailer',
-        description: 'Idealen za visoke tovore do 3m. Tovornost do 24 ton.',
+        description: 'Idealen za visoke tovore do 3m. Tovornost do 25 ton.',
         vehicleConfiguration: 'Dolžina 13.6m, Višina 3.0m, Širina 2.48m',
       },
     },
@@ -46,7 +46,7 @@ const fleetSchema = {
       item: {
         '@type': 'Vehicle',
         name: 'Tautliner',
-        description: 'Stransko nalaganje za enostavno rokovanje. Tovornost do 24 ton.',
+        description: 'Stransko nalaganje za enostavno rokovanje. Tovornost do 25 ton.',
         vehicleConfiguration: 'Dolžina 13.6m, tarpaulin pokrov',
       },
     },
@@ -56,7 +56,7 @@ const fleetSchema = {
       item: {
         '@type': 'Vehicle',
         name: 'Flatbed',
-        description: 'Nadgabaritni in posebni prevozi. Tovornost do 24 ton.',
+        description: 'Nadgabaritni in posebni prevozi. Tovornost do 25 ton.',
         vehicleConfiguration: 'Dolžina do 20m, spremljevalni escort',
       },
     },
@@ -88,7 +88,7 @@ export default function FleetPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(fleetSchema) }} />
-      <FleetClient />
+      <FleetClientWrapper />
     </>
   );
 }

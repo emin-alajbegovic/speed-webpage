@@ -16,9 +16,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://spedition-begovac.com'),
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
-    apple: '/icon.svg',
+    icon: [{ url: '/icon.png', type: 'image/png' }],
+    apple: [{ url: '/icon.png', type: 'image/png' }],
   },
   title: {
     default: 'Begovac Spedition – Mednarodni transport in špedicija',

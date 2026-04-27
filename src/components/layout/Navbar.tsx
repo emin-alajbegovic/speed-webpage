@@ -16,6 +16,7 @@ const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
   { href: '/storitve', label: t.nav.services },
   { href: '/vozni-park', label: t.nav.fleet },
   { href: '/o-nas', label: t.nav.about },
+  { href: '/znamka', label: t.nav.brand },
   { href: '/kontakt', label: t.nav.contact },
 ];
 
@@ -60,7 +61,11 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" aria-label="Begovac Spedition – Domov" className="flex items-center group shrink-0 mr-2">
+          <Link
+            href="/"
+            aria-label="Begovac Spedition – Domov"
+            className="flex items-center group shrink-0 mr-2 min-w-0"
+          >
             <Image
               src={brandLogo}
               alt="Begovac Spedition"
@@ -68,7 +73,7 @@ export default function Navbar() {
               height={144}
               priority
               className={cn(
-                'h-10 sm:h-11 w-auto max-w-[min(58vw,270px)] sm:max-w-[300px] object-contain object-left transition-[filter,opacity] group-hover:opacity-90',
+                'h-10 sm:h-12 w-auto max-w-[min(58vw,300px)] sm:max-w-[340px] object-contain object-left transition-[filter,opacity] group-hover:opacity-90',
                 isDark
                   ? 'brightness-0 invert'
                   : scrolled

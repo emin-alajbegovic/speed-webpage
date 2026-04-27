@@ -1,12 +1,18 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useInView } from 'framer-motion';
 
 const partners = [
-  'Mercedes-Benz', 'Volvo Trucks', 'DAF', 'MAN Trucks',
-  'Scania', 'DHL Partner', 'DB Schenker', 'Hellmann',
+  { name: 'DPD', src: '/images/partners/dpd.svg' },
+  { name: 'DHL', src: '/images/partners/dhl.svg' },
+  { name: 'DSV', src: '/images/partners/dsv.svg' },
+  { name: 'FACC', src: '/images/partners/facc.svg' },
+  { name: 'Fiege', src: '/images/partners/fiege.svg' },
+  { name: 'Englmayer', src: '/images/partners/englmayer.png' },
+  { name: 'Franco Maier', src: '/images/partners/francomaier.png' },
 ];
 
 export default function Partners() {
@@ -33,9 +39,15 @@ export default function Partners() {
             {[...partners, ...partners].map((p, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center px-8 py-3 bg-[var(--card)] border border-[var(--card-border)] rounded-xl text-sm font-bold text-[var(--muted-foreground)] whitespace-nowrap hover:border-[var(--accent)]/40 hover:text-[var(--foreground)] transition-all shrink-0"
+                className="flex items-center justify-center px-8 py-4 bg-[var(--card)] border border-[var(--card-border)] rounded-xl hover:border-[var(--accent)]/40 transition-all shrink-0"
               >
-                {p}
+                <Image
+                  src={p.src}
+                  alt={p.name}
+                  width={120}
+                  height={48}
+                  className="object-contain h-10 w-auto"
+                />
               </div>
             ))}
           </div>

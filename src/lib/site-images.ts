@@ -1,4 +1,4 @@
-/** Brand wordmark (exported from Begovac VOLVO.pdf). Intrinsic 560×144. */
+/** Wordmark only (BEGOVAC + Spedition) — navbar, footer, brand page. */
 export const brandLogo = '/logo-signature.png';
 
 /** Social / Open Graph preview (1200×630). */
@@ -33,27 +33,43 @@ export const fleetParkLineup = '/images/fleet-park-lineup.png';
  *   5 — Express Pošiljke  → van-1..5.jpg        (kombi vans)
  */
 export const fleetImages: readonly (readonly string[])[] = [
-  // 0 — Mega Trailer (replace with mega-1.jpg when ready)
-  ['/images/fleet/mega-trailer.jpg'],
-  // 1 — Tautliner (replace/extend with tautliner-1.jpg … tautliner-5.jpg)
+  // 0 — Mega Trailer
+  [
+    '/images/mega/1000187421.JPG',
+    '/images/mega/1000189228.JPG',
+    '/images/mega/1000192267.JPG',
+  ],
+  // 1 — Tautliner
   ['/images/fleet/tautliner.jpg'],
   // 2 — Flatbed
   ['/images/fleet/highway.jpg'],
-  // 3 — Box Express (replace with box-express.jpg)
-  ['/images/fleet/delivery-van.jpg'],
-  // 4 — Pretovar Robe (replace with pretovar-1.jpg)
-  ['/images/fleet/adr-trailer.jpg'],
-  // 5 — Express Pošiljke (replace/extend with van-1.jpg … van-5.jpg)
-  ['/images/fleet/delivery-van.jpg'],
-] as const;
+  // 3 — ADR (dangerous goods)
+  [
+    '/images/adr/1000154598.JPG',
+    '/images/adr/1000154662.JPG',
+    '/images/adr/1000191896.JPG',
+    '/images/adr/1000191961.JPG',
+  ],
+  // 4 — Pretovar Robe
+  [
+    '/images/pretovar_robe/1000192422.JPG',
+    '/images/pretovar_robe/1000192424.JPG',
+    '/images/pretovar_robe/1000192425.JPG',
+  ],
+  // 5 — Express Pošiljke (kombi)
+  [
+    '/images/kombi/IMG_0175.jpeg',
+    '/images/kombi/IMG_9361.jpeg',
+  ],
+];
 
 /** Order matches `t.services.items` (Road Transport, International Freight, Consulting). */
 export const serviceImages = [
   '/images/services/road.jpg',
   '/images/services/freight.jpg',
-  '/images/services/consulting.jpg',
+  '/images/fleet-park-lineup.png',
 ] as const;
 
 export const heroTruckImage = '/images/hero-truck.jpg';
 export const whyUsImage = '/images/why-us-truck.jpg';
-export const aboutStoryImage = '/images/about-fleet-care.jpg';
+export const aboutStoryImage = '/images/tautliner/IMG_1178.jpeg';
