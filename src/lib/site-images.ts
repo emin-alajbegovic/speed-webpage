@@ -1,4 +1,4 @@
-/** Wordmark only (BEGOVAC + Spedition) — navbar, footer, brand page. */
+/** Navbar + footer wordmark (transparent PNG). */
 export const brandLogo = '/logo-signature.png';
 
 /** Social / Open Graph preview (1200×630). */
@@ -72,4 +72,6 @@ export const serviceImages = [
 
 export const heroTruckImage = '/images/hero-truck.jpg';
 export const whyUsImage = '/images/why-us-truck.jpg';
-export const aboutStoryImage = '/images/tautliner/IMG_1178.jpeg';
+
+/** About page — story section (cestni transport). */
+export const aboutStoryImage = '/images/services/road.jpg';

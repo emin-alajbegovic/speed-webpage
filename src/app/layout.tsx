@@ -16,11 +16,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://spedition-begovac.com'),
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: [{ url: '/icon.png', type: 'image/png' }],
+    icon: [
+      { url: '/images/logo-mark-b.png', type: 'image/png', sizes: '37x34' },
+      { url: '/images/logo-mark-b.png', type: 'image/png', sizes: 'any' },
+    ],
+    apple: [{ url: '/images/logo-mark-b.png', type: 'image/png' }],
   },
   title: {
-    default: 'Begovac Spedition – Mednarodni transport in špedicija',
+    default: 'Begovac Spedition',
     template: '%s | Begovac Spedition',
   },
   description: 'Begovac Spedition je zanesljiv logistični partner za mednarodni cestni prevoz in špedicijo po vsej Evropi. Nudimo FTL, LTL in posebne prevoze.',
@@ -67,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="sl" suppressHydrationWarning className={inter.variable}>
       <head>
+        <link rel="icon" href="/images/logo-mark-b.png" type="image/png" sizes="any" />
         <meta name="theme-color" content="#f97316" />
         <script
           dangerouslySetInnerHTML={{

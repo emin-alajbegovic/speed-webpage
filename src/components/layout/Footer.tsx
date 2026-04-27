@@ -16,7 +16,6 @@ export default function Footer() {
     { href: '/storitve', label: t.nav.services },
     { href: '/vozni-park', label: t.nav.fleet },
     { href: '/o-nas', label: t.nav.about },
-    { href: '/znamka', label: t.nav.brand },
     { href: '/kontakt', label: t.nav.contact },
   ];
 
@@ -39,9 +38,9 @@ export default function Footer() {
               <Image
                 src={brandLogo}
                 alt="Begovac Spedition"
-                width={660}
+                width={560}
                 height={144}
-                className="h-10 sm:h-11 w-auto max-w-[min(100%,300px)] object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                className="h-10 sm:h-11 w-auto max-w-[min(100%,300px)] object-contain object-left invert opacity-90 group-hover:opacity-100 transition-opacity"
               />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed mb-5 max-w-xs">

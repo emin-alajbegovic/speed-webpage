@@ -9,7 +9,7 @@ import Partners from '@/components/home/Partners';
 import CTA from '@/components/home/CTA';
 
 export const metadata: Metadata = {
-  title: 'Begovac Spedition – Zanesljiv partner v logistiki',
+  title: { absolute: 'Begovac Spedition' },
   description: 'Specializirani za mednarodni transport in špedicijo po vsej Evropi. 8+ let izkušenj, 15+ vozil, pokritost 15 evropskih držav. FTL, LTL in posebni prevozi.',
   alternates: {
     canonical: 'https://spedition-begovac.com',

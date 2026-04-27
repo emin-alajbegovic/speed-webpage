@@ -7,6 +7,6 @@
   "background_color": "#ffffff",
   "theme_color": "#f97316",
   "icons": [
-    { "src": "/icon.png", "sizes": "86x72", "type": "image/png", "purpose": "any" }
+    { "src": "/images/logo-mark-b.png", "sizes": "37x34", "type": "image/png", "purpose": "any" }
   ]
 }

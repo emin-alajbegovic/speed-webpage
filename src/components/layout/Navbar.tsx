@@ -16,7 +16,6 @@ const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
   { href: '/storitve', label: t.nav.services },
   { href: '/vozni-park', label: t.nav.fleet },
   { href: '/o-nas', label: t.nav.about },
-  { href: '/znamka', label: t.nav.brand },
   { href: '/kontakt', label: t.nav.contact },
 ];
 
@@ -52,10 +51,10 @@ export default function Navbar() {
 
       <nav
         className={cn(
-          'fixed top-0 left-0 right-0 z-[100] transition-all duration-300',
-          scrolled
-            ? 'bg-[var(--background)]/95 backdrop-blur-md shadow-[var(--shadow-md)] border-b border-[var(--border)]'
-            : 'bg-transparent'
+          'fixed top-0 left-0 right-0 z-[100] transition-shadow duration-300',
+          // Uvijek tamna traka kao footer — logo i linkovi ostaju čitljivi u light i dark temi stranice
+          'bg-[#0a1628]/98 backdrop-blur-md border-b border-white/[0.08]',
+          scrolled ? 'shadow-[0_8px_28px_rgba(0,0,0,0.45)]' : 'shadow-[0_2px_12px_rgba(0,0,0,0.2)]',
         )}
         style={{ height: 'var(--navbar-height)' }}
       >
@@ -69,17 +68,10 @@ export default function Navbar() {
             <Image
               src={brandLogo}
               alt="Begovac Spedition"
-              width={660}
+              width={560}
               height={144}
               priority
-              className={cn(
-                'h-10 sm:h-12 w-auto max-w-[min(58vw,300px)] sm:max-w-[340px] object-contain object-left transition-[filter,opacity] group-hover:opacity-90',
-                isDark
-                  ? 'brightness-0 invert'
-                  : scrolled
-                    ? 'brightness-0'
-                    : 'drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]'
-              )}
+              className="h-10 sm:h-12 w-auto max-w-[min(58vw,300px)] sm:max-w-[340px] object-contain object-left invert opacity-95 transition-opacity group-hover:opacity-100"
             />
           </Link>
 
@@ -89,7 +81,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
+                className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all"
               >
                 {link.label}
               </Link>
@@ -101,7 +93,7 @@ export default function Navbar() {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
+              className="w-9 h-9 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -114,7 +106,7 @@ export default function Navbar() {
                 aria-label="Izberi jezik"
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all"
               >
                 <span>{currentLang?.flag}</span>
                 <span>{currentLang?.code.toUpperCase()}</span>
@@ -127,7 +119,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full z-[110] mt-1 w-44 bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-[var(--shadow-lg)] overflow-hidden"
+                    className="absolute right-0 top-full z-[110] mt-1 w-44 rounded-xl border border-white/10 bg-[#0f2035] shadow-xl overflow-hidden"
                   >
                     {locales.map((lang) => (
                       <button
@@ -137,7 +129,7 @@ export default function Navbar() {
                           'w-full flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors',
                           locale === lang.code
                             ? 'bg-[var(--accent)] text-white font-medium'
-                            : 'text-[var(--foreground)] hover:bg-[var(--muted)]'
+                            : 'text-white/90 hover:bg-white/10'
                         )}
                       >
                         <span>{lang.flag}</span>
@@ -162,7 +154,7 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               aria-label="Preklopi temo"
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--muted-foreground)]"
+              className="w-9 h-9 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -170,7 +162,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Zapri meni' : 'Odpri meni'}
               aria-expanded={mobileOpen}
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
+              className="w-9 h-9 rounded-lg flex items-center justify-center text-white hover:bg-white/10 transition-all"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -186,7 +178,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed top-[var(--navbar-height)] left-0 right-0 z-[95] bg-[var(--background)]/98 backdrop-blur-md border-b border-[var(--border)] shadow-[var(--shadow-lg)] overflow-hidden"
+            className="fixed top-[var(--navbar-height)] left-0 right-0 z-[95] border-b border-white/10 bg-[#0a1628]/98 backdrop-blur-md shadow-xl overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               {links.map((link) => (
@@ -194,12 +186,12 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-all"
+                  className="px-4 py-3 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10 transition-all"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="border-t border-[var(--border)] mt-2 pt-3 flex flex-wrap gap-2">
+              <div className="border-t border-white/10 mt-2 pt-3 flex flex-wrap gap-2">
                 {locales.map((lang) => (
                   <button
                     key={lang.code}
@@ -208,7 +200,7 @@ export default function Navbar() {
                       'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all',
                       locale === lang.code
                         ? 'bg-[var(--accent)] text-white'
-                        : 'bg-[var(--muted)] text-[var(--muted-foreground)]'
+                        : 'bg-white/10 text-white/80 hover:bg-white/15'
                     )}
                   >
                     <span>{lang.flag}</span>
