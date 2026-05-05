@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useInView } from 'framer-motion';
 import ContactForm from '@/components/contact/ContactForm';
@@ -168,17 +168,6 @@ export default function ContactClient() {
                 </div>
               </a>
 
-              {/* Map placeholder */}
-              <div className="bg-[var(--card)] border border-[var(--card-border)] rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center relative">
-                <div className="text-center">
-                  <MapPin className="w-10 h-10 text-[var(--accent)] mx-auto mb-2" />
-                  <p className="text-sm font-medium text-[var(--muted-foreground)]">Google Maps</p>
-                  <p className="text-xs text-[var(--muted-foreground)]/60 mt-1">
-                    {t.contact.info.mapPlaceholder}
-                  </p>
-                </div>
-                <div className="absolute inset-0 grid-pattern opacity-30" />
-              </div>
             </motion.div>
 
             {/* Form – right */}
