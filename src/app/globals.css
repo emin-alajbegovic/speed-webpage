@@ -186,14 +186,25 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Pulse glow */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
-}
-
+/* Pulse glow — composited via opacity+transform on pseudo-element (no box-shadow animation) */
 .pulse-glow {
+  position: relative;
+  isolation: isolate;
+}
+.pulse-glow::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: rgba(249, 115, 22, 0.35);
+  filter: blur(8px);
   animation: pulseGlow 2s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 /* Fade in up animation */
@@ -220,6 +231,7 @@ body {
 
 .marquee-track {
   animation: marquee 25s linear infinite;
+  will-change: transform;
 }
 .marquee-track:hover {
   animation-play-state: paused;

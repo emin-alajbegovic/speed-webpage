@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Hero from '@/components/home/Hero';
 import RoutesBanner from '@/components/home/RoutesBanner';
-import Services from '@/components/home/Services';
-import Stats from '@/components/home/Stats';
-import WhyUs from '@/components/home/WhyUs';
-import FleetWrapper from '@/components/home/FleetWrapper';
-import Partners from '@/components/home/Partners';
-import CTA from '@/components/home/CTA';
+
+const Partners = dynamic(() => import('@/components/home/Partners'));
+const Services = dynamic(() => import('@/components/home/Services'));
+const Stats = dynamic(() => import('@/components/home/Stats'));
+const WhyUs = dynamic(() => import('@/components/home/WhyUs'));
+const FleetWrapper = dynamic(() => import('@/components/home/FleetWrapper'));
+const CTA = dynamic(() => import('@/components/home/CTA'));
 
 export const metadata: Metadata = {
   title: { absolute: 'Begovac Spedition' },
