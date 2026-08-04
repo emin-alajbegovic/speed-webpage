@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Begovac Spedition
 
-## Getting Started
+Marketing site for Begovac Spedition d.o.o. — international road freight and forwarding.
 
-First, run the development server:
+Built with Next.js 16 (App Router), React 19, Tailwind CSS v4 and Framer Motion.
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in RESEND_API_KEY to enable the contact form
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All are read server-side only, in `src/app/api/kontakt/route.ts`.
 
-## Learn More
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes, in production | Authenticates against the Resend API to deliver contact-form enquiries. |
+| `CONTACT_INBOX` | no | Recipient address. Defaults to `info@spedition-begovac.com`. |
+| `CONTACT_FROM` | no | Sender identity, must use a Resend-verified domain. |
 
-To learn more about Next.js, take a look at the following resources:
+If `RESEND_API_KEY` is missing the endpoint responds `503 not_configured` and the
+form surfaces the phone number and e-mail address instead of claiming the message
+was sent. This is deliberate — a silently swallowed enquiry is a lost customer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Development server with Turbopack. |
+| `npm run build` | Production build. |
+| `npm run start` | Serve the production build. |
+| `npm run lint` | ESLint. |
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/            routes; each page pairs a server component (metadata) with a *Client.tsx
+  components/     home/ layout/ contact/ ui/
+  contexts/       ThemeContext (light/dark), LanguageContext (sl/en/de/es)
+  lib/
+    i18n.ts       every user-facing string, keyed by locale
+    site-images.ts single source of truth for image paths
+public/images/    optimised photography, grouped by fleet category
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Conventions
+
+- **Copy lives in `src/lib/i18n.ts`.** Adding a string means adding it to all four
+  locales — the types enforce this.
+- **Image paths live in `src/lib/site-images.ts`,** never inline in components.
+- **Next.js 16 image loading:** `preload` belongs on the LCP hero image only.
+  Other above-the-fold images use `loading="eager"` with `fetchPriority="high"`.
+  The `priority` prop is deprecated.
+- Theme is applied by a blocking inline script in `layout.tsx` before paint, so
+  dark mode does not flash. `<html>` carries `suppressHydrationWarning` for that reason.

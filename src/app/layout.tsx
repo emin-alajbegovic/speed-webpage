@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import MobileContactBar from '@/components/layout/MobileContactBar';
 import StructuredData from '@/components/StructuredData';
 
 const inter = Inter({
@@ -53,13 +54,13 @@ export const metadata: Metadata = {
     siteName: 'Begovac Spedition',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
     description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi. 8+ let izkušenj, 15+ vozil, 15+ držav.',
-    images: [{ url: '/images/hero-branded-truck.png', width: 1200, height: 630, alt: 'Begovac Spedition — mednarodni transport' }],
+    images: [{ url: '/images/og-rig.jpg', width: 1200, height: 630, alt: 'Begovac Spedition — mednarodni transport' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Begovac Spedition – Mednarodni transport in špedicija',
     description: 'Zanesljiv logistični partner za mednarodni cestni prevoz po vsej Evropi.',
-    images: ['/images/hero-branded-truck.png'],
+    images: ['/images/og-rig.jpg'],
   },
   alternates: {
     canonical: 'https://spedition-begovac.com',
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
             <main id="main-content" className="relative z-0">{children}</main>
             <Footer />
+            <MobileContactBar />
           </LanguageProvider>
         </ThemeProvider>
       </body>

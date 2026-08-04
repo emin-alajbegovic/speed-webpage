@@ -1,7 +1,25 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useSyncExternalStore,
+} from 'react';
 import { type Locale, translations } from '@/lib/i18n';
+import { createBrowserStore } from '@/lib/browser-store';
+
+const STORAGE_KEY = 'begovac-locale';
+
+/** Matches the `lang` on <html> that the server renders. */
+const DEFAULT_LOCALE: Locale = 'sl';
+
+const localeStore = createBrowserStore<Locale>(() => {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  return saved && saved in translations ? (saved as Locale) : DEFAULT_LOCALE;
+}, DEFAULT_LOCALE);
 
 interface LanguageContextType {
   locale: Locale;
@@ -12,27 +30,28 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('sl');
+  const locale = useSyncExternalStore(
+    localeStore.subscribe,
+    localeStore.getSnapshot,
+    localeStore.getServerSnapshot
+  );
 
+  // Screen readers and translation tools key off `lang`, so it has to track the choice.
   useEffect(() => {
-    const saved = localStorage.getItem('begovac-locale') as Locale | null;
-    if (saved && ['sl', 'en', 'es', 'de'].includes(saved)) {
-      setLocaleState(saved);
-    }
+    document.documentElement.lang = locale;
+  }, [locale]);
+
+  const setLocale = useCallback((next: Locale) => {
+    localStorage.setItem(STORAGE_KEY, next);
+    localeStore.notify();
   }, []);
 
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
-    localStorage.setItem('begovac-locale', newLocale);
-  };
-
-  const t = translations[locale] as typeof translations.sl;
-
-  return (
-    <LanguageContext.Provider value={{ locale, setLocale, t }}>
-      {children}
-    </LanguageContext.Provider>
+  const value = useMemo(
+    () => ({ locale, setLocale, t: translations[locale] as typeof translations.sl }),
+    [locale, setLocale]
   );
+
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

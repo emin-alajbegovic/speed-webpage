@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Weight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { heroBrandedTruck } from '@/lib/site-images';
+import { fleetHeroImage } from '@/lib/site-images';
 
 // specs are now sourced from t.fleet.items[i].specs
 
@@ -75,13 +75,13 @@ export default function FleetClient({ galleryImages }: { galleryImages: string[]
       {/* Hero */}
       <section className="relative pt-[var(--navbar-height)] pb-16 bg-[var(--muted)] overflow-hidden">
         <div className="absolute inset-0 hero-gradient grid-pattern" />
-        <div className="absolute right-0 top-0 bottom-0 w-full max-w-xl opacity-[0.14] dark:opacity-[0.22] pointer-events-none hidden sm:block">
+        <div className="absolute right-0 top-0 bottom-0 hidden w-1/2 max-w-3xl pointer-events-none sm:block">
           <Image
-            src={heroBrandedTruck}
+            src={fleetHeroImage}
             alt=""
             fill
-            sizes="(max-width: 1280px) 40vw, 576px"
-            className="object-cover object-left"
+            sizes="(max-width: 1280px) 50vw, 768px"
+            className="object-cover object-center [mask-image:linear-gradient(to_right,transparent,black_45%)]"
             aria-hidden
           />
         </div>

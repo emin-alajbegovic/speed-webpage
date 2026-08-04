@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -10,6 +10,14 @@ import { brandLogo } from '@/lib/site-images';
 import { cn } from '@/lib/utils';
 import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+
+function subscribeToScroll(onScroll: () => void) {
+  window.addEventListener('scroll', onScroll, { passive: true });
+  return () => window.removeEventListener('scroll', onScroll);
+}
+
+const isScrolled = () => window.scrollY > 20;
+const notScrolled = () => false;
 
 const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
   { href: '/', label: t.nav.home },
@@ -22,23 +30,15 @@ const navLinks = (t: ReturnType<typeof useLanguage>['t']) => [
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { locale, setLocale, t } = useLanguage();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    const handler = () => setScrolled(window.scrollY > 20);
-    handler();
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
+  const scrolled = useSyncExternalStore(subscribeToScroll, isScrolled, notScrolled);
 
   const links = navLinks(t);
   const currentLang = locales.find(l => l.code === locale);
 
-  const isDark = mounted ? theme === 'dark' : false;
+  const isDark = theme === 'dark';
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function Navbar() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[var(--accent)] focus:text-white focus:rounded-lg focus:font-semibold focus:text-sm"
       >
-        Preskoči na vsebino
+        {t.nav.skipToContent}
       </a>
 
       <nav
@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="Begovac Spedition – Domov"
+            aria-label={t.nav.homeAria}
             className="flex items-center group shrink-0 mr-2 min-w-0"
           >
             <Image
@@ -70,7 +70,9 @@ export default function Navbar() {
               alt="Begovac Spedition"
               width={560}
               height={144}
-              priority
+              loading="eager"
+              fetchPriority="high"
+              sizes="(min-width: 640px) 340px, 58vw"
               className="h-10 sm:h-12 w-auto max-w-[min(58vw,300px)] sm:max-w-[340px] object-contain object-left invert opacity-95 transition-opacity group-hover:opacity-100"
             />
           </Link>
@@ -94,7 +96,7 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className="w-9 h-9 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all"
-              aria-label="Toggle theme"
+              aria-label={t.nav.themeToggle}
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -103,7 +105,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                aria-label="Izberi jezik"
+                aria-label={t.nav.languageSelect}
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all"
@@ -153,14 +155,14 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              aria-label="Preklopi temo"
+              aria-label={t.nav.themeToggle}
               className="w-9 h-9 rounded-lg flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Zapri meni' : 'Odpri meni'}
+              aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={mobileOpen}
               className="w-9 h-9 rounded-lg flex items-center justify-center text-white hover:bg-white/10 transition-all"
             >

@@ -15,11 +15,12 @@ const iconGradients = [
   'from-purple-600 to-violet-400',
 ];
 
-function ServiceSection({ service, index, inView, imageSrc }: {
+function ServiceSection({ service, index, inView, imageSrc, quoteLabel }: {
   service: { title: string; description: string; features: readonly string[] };
   index: number;
   inView: boolean;
   imageSrc: string;
+  quoteLabel: string;
 }) {
   const Icon = icons[index];
   const isEven = index % 2 === 0;
@@ -54,7 +55,7 @@ function ServiceSection({ service, index, inView, imageSrc }: {
           href="/kontakt"
           className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent)] text-white font-semibold text-sm rounded-xl hover:bg-[var(--accent-hover)] transition-all hover:shadow-lg hover:shadow-orange-500/20 hover:-translate-y-0.5"
         >
-          Zahtevajte ponudbo
+          {quoteLabel}
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -112,7 +113,14 @@ export default function ServicesClient() {
       <section className="py-8 bg-[var(--background)]" ref={ref}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {t.services.items.map((service, i) => (
-            <ServiceSection key={i} service={service} index={i} inView={inView} imageSrc={serviceImages[i]} />
+            <ServiceSection
+              key={i}
+              service={service}
+              index={i}
+              inView={inView}
+              imageSrc={serviceImages[i]}
+              quoteLabel={t.services.requestQuote}
+            />
           ))}
         </div>
       </section>
@@ -121,16 +129,16 @@ export default function ServicesClient() {
       <section className="py-16 bg-[var(--muted)]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[var(--foreground)] mb-4">
-            Potrebujete prilagojeno rešitev?
+            {t.services.customTitle}
           </h2>
           <p className="text-[var(--muted-foreground)] mb-6">
-            Pokličite nas ali pošljite povpraševanje. Naša ekipa je na voljo 24/7.
+            {t.services.customSubtitle}
           </p>
           <Link
             href="/kontakt"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--accent)] text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] transition-all hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-1"
           >
-            Kontaktirajte nas
+            {t.services.contactCta}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

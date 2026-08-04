@@ -2,76 +2,38 @@
 export const brandLogo = '/logo-signature.png';
 
 /** Social / Open Graph preview (1200×630). */
-export const ogShareImage = '/images/hero-branded-truck.png';
+export const ogShareImage = '/images/og-rig.jpg';
 
-/** Hero: branded truck photo (fallback when video off or unsupported). */
-export const heroBrandedTruck = '/images/hero-branded-truck.png';
+/** Hero background — DAF XG + branded tautliner, golden hour. LCP image, keep it preloaded. */
+export const heroImage = '/images/hero-rig-golden.jpg';
 
-/** Poster while hero video loads (seven trucks). */
-export const heroVideoPoster = '/images/fleet-park-lineup.png';
+/** Fleet page hero — same rig, side profile. */
+export const fleetHeroImage = '/images/tautliner/01-rig-side.jpg';
 
-/** Single hero background clip — H.264 MP4, no rotation metadata, all browsers. */
-export const heroBackgroundVideo = '/video/hero.mp4';
-
-/** Fleet lineup / seven trucks (same file as hero poster). */
+/** Fleet lineup / seven trucks. */
 export const fleetParkLineup = '/images/fleet-park-lineup.png';
 
 /**
- * Gallery images per fleet type — order matches `t.fleet.items` in i18n.
- * First image in each array is the card thumbnail.
- *
- * HOW TO ADD YOUR PHOTOS:
- * Copy them to /public/images/fleet/ with the names below,
- * then replace the placeholder paths (existing fallback files) with your new ones.
- *
- * Index mapping:
- *   0 — Mega Trailer      → mega-1.jpg         (red Volvo FH)
- *   1 — Tautliner         → tautliner-1..5.jpg (side-loading cargo)
- *   2 — Flatbed           → highway.jpg         (unchanged)
- *   3 — Box Express       → box-express.jpg
- *   4 — Pretovar Robe     → pretovar-1.jpg      (Schenker terminal)
- *   5 — Express Pošiljke  → van-1..5.jpg        (kombi vans)
+ * Fallback gallery per fleet type — only used if `loadFleetImages()` finds nothing on disk.
+ * The live galleries are read from /public/images/{mega,tautliner,adr,pretovar_robe,kombi}
+ * at build time; files sort alphabetically, so a `00-` prefix makes a photo the card thumbnail.
  */
 export const fleetImages: readonly (readonly string[])[] = [
-  // 0 — Mega Trailer
-  [
-    '/images/mega/1000187421.JPG',
-    '/images/mega/1000189228.JPG',
-    '/images/mega/1000192267.JPG',
-  ],
-  // 1 — Tautliner
-  ['/images/fleet/tautliner.jpg'],
-  // 2 — Flatbed
-  ['/images/fleet/highway.jpg'],
-  // 3 — ADR (dangerous goods)
-  [
-    '/images/adr/1000154598.JPG',
-    '/images/adr/1000154662.JPG',
-    '/images/adr/1000191896.JPG',
-    '/images/adr/1000191961.JPG',
-  ],
-  // 4 — Pretovar Robe
-  [
-    '/images/pretovar_robe/1000192422.JPG',
-    '/images/pretovar_robe/1000192424.JPG',
-    '/images/pretovar_robe/1000192425.JPG',
-  ],
-  // 5 — Express Pošiljke (kombi)
-  [
-    '/images/kombi/IMG_0175.jpeg',
-    '/images/kombi/IMG_9361.jpeg',
-  ],
+  ['/images/mega/00-front-dusk.jpg'],
+  ['/images/tautliner/00-scania-spain.jpg'],
+  ['/images/adr/1000154598.JPG'],
+  ['/images/pretovar_robe/1000192422.JPG'],
+  ['/images/kombi/IMG_0175.jpeg'],
 ];
 
 /** Order matches `t.services.items` (Road Transport, International Freight, Consulting). */
 export const serviceImages = [
-  '/images/services/road.jpg',
-  '/images/services/freight.jpg',
-  '/images/fleet-park-lineup.png',
+  '/images/route-on-road.jpg',
+  '/images/tautliner/03-rig-full.jpg',
+  '/images/services/consulting.jpg',
 ] as const;
 
-export const heroTruckImage = '/images/hero-truck.jpg';
 export const whyUsImage = '/images/why-us-truck.jpg';
 
-/** About page — story section (cestni transport). */
-export const aboutStoryImage = '/images/services/road.jpg';
+/** About page — story section. */
+export const aboutStoryImage = '/images/about-cab-detail.jpg';

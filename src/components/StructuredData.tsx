@@ -77,7 +77,7 @@ export default function StructuredData() {
         '@id': 'https://spedition-begovac.com/#localbusiness',
         name: 'Begovac Spedition d.o.o.',
         url: 'https://spedition-begovac.com',
-        image: 'https://spedition-begovac.com/images/hero-branded-truck.png',
+        image: 'https://spedition-begovac.com/images/og-rig.jpg',
         logo: 'https://spedition-begovac.com/logo-signature.png',
         priceRange: '€€',
         currenciesAccepted: 'EUR',

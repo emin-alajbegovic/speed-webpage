@@ -86,7 +86,7 @@ export default function Services() {
                   href="/storitve"
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] group-hover:gap-2.5 transition-all"
                 >
-                  Več informacij
+                  {t.services.learnMore}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 

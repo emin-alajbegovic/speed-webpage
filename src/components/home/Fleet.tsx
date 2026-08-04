@@ -161,7 +161,7 @@ export default function Fleet({ galleryImages }: { galleryImages: string[][] }) 
           {t.fleet.subtitle}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {t.fleet.items.map((vehicle, i) => (
             <motion.button
               key={i}
@@ -169,9 +169,9 @@ export default function Fleet({ galleryImages }: { galleryImages: string[][] }) 
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.07 }}
               onClick={() => setActiveModal(i)}
-              className="group bg-[var(--card)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-[var(--shadow-lg)] hover:border-[var(--accent)]/30 transition-all hover:-translate-y-1 text-left w-full cursor-pointer"
+              className="group flex h-full flex-col bg-[var(--card)] border border-[var(--card-border)] rounded-2xl overflow-hidden hover:shadow-[var(--shadow-lg)] hover:border-[var(--accent)]/30 transition-all hover:-translate-y-1 text-left w-full cursor-pointer"
             >
-              <div className={`relative aspect-[16/9] border-b border-[var(--card-border)] overflow-hidden bg-gradient-to-br ${truckColors[i % truckColors.length]}`}>
+              <div className={`relative shrink-0 aspect-[16/9] border-b border-[var(--card-border)] overflow-hidden bg-gradient-to-br ${truckColors[i % truckColors.length]}`}>
                 <Image
                   src={galleryImages[i]?.[0] ?? '/images/fleet/mega-trailer.jpg'}
                   alt={`${vehicle.name} — Begovac Spedition`}

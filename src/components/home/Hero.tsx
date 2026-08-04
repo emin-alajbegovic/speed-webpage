@@ -1,58 +1,44 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { heroBackgroundVideo, heroVideoPoster } from '@/lib/site-images';
-import { motion } from 'framer-motion';
-import { ArrowRight, Clock, AlertTriangle, CheckCircle, MapPin, Award } from 'lucide-react';
+import { heroImage } from '@/lib/site-images';
+import { ArrowRight, Clock, AlertTriangle, CheckCircle, MapPin, Award, Phone } from 'lucide-react';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: 'easeOut' as const },
-  }),
-};
+const DISPATCH_PHONE = '+386 40 482 669';
 
-const CountUp = ({ end, suffix }: { end: number; suffix: string }) => {
+function CountUp({ end, format }: { end: number; format: (n: number) => string }) {
   const ref = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    let start = 0;
-    const duration = 2000;
-    const step = end / (duration / 16);
-    const timer = setInterval(() => {
-      start = Math.min(start + step, end);
-      const n = Math.floor(start);
-      let display: string;
-      if (end >= 1000000) display = (n / 1000000).toFixed(1) + 'm';
-      else if (end >= 10000) display = Math.floor(n / 1000) + 'k';
-      else display = String(Math.floor(n));
-      el.textContent = display + suffix;
-      if (start >= end) clearInterval(timer);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [end, suffix]);
-  return <span ref={ref}>0{suffix}</span>;
-};
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = format(end);
+      return;
+    }
+    const duration = 1800;
+    const start = performance.now();
+    let frame = 0;
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = format(Math.floor((1 - Math.pow(1 - p, 3)) * end));
+      if (p < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [end, format]);
+
+  return <span ref={ref}>{format(0)}</span>;
+}
+
+const plain = (n: number) => String(n);
+const millions = (n: number) => (n / 1000000).toFixed(1) + 'm';
 
 export default function Hero() {
   const { t } = useLanguage();
-  const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(heroBackgroundVideo, { method: 'HEAD' })
-      .then((r) => {
-        if (!cancelled && r.ok) setVideoReady(true);
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, []);
 
   const trustBadges = [
     { icon: AlertTriangle, label: t.hero.badgeAdr },
@@ -62,171 +48,120 @@ export default function Hero() {
     { icon: Clock, label: t.hero.badge247 },
   ] as const;
 
+  const stats = [
+    { value: 8, format: plain, label: t.hero.stat1 },
+    { value: 15, format: plain, label: t.hero.stat2 },
+    { value: 12, format: plain, label: t.hero.stat3 },
+    { value: 1200000, format: millions, label: t.hero.stat4 },
+  ];
+
   return (
-    <section className="relative min-h-screen flex flex-col pt-[var(--navbar-height)] overflow-hidden">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden pt-[var(--navbar-height)]">
+      {/* Background photo — the LCP element */}
       <div className="absolute inset-0 z-0">
-        {videoReady ? (
-          <video
-            className="absolute inset-0 h-full w-full object-cover object-[75%_center] sm:object-[65%_center]"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={heroVideoPoster}
-            onError={() => setVideoReady(false)}
-            aria-hidden
-          >
-            <source src={heroBackgroundVideo} type="video/mp4" />
-          </video>
-        ) : null}
         <Image
-          src={heroVideoPoster}
+          src={heroImage}
           alt={t.hero.imageAlt}
           fill
-          priority
+          preload
+          quality={85}
           sizes="100vw"
-          className={`object-cover object-center sm:object-[50%_55%] transition-opacity duration-700 ${videoReady ? 'opacity-0' : 'opacity-100'}`}
-          aria-hidden={videoReady}
+          className="object-cover object-[80%_center] sm:object-[55%_center]"
         />
+        <div className="hero-scrim absolute inset-0" aria-hidden />
+        <div className="grid-pattern absolute inset-0 opacity-[0.10]" aria-hidden />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--background)]/92 to-[var(--background)]/55 dark:from-[var(--background)] dark:via-[var(--background)]/88 dark:to-[var(--background)]/40"
+          className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent"
           aria-hidden
         />
-        <div className="absolute inset-0 hero-gradient opacity-40 mix-blend-multiply dark:opacity-25 dark:mix-blend-normal pointer-events-none" aria-hidden />
-        <div className="absolute inset-0 grid-pattern opacity-[0.12] pointer-events-none" aria-hidden />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/25 to-transparent" aria-hidden />
       </div>
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[var(--accent)]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 py-12 pb-24 sm:px-6 sm:py-16 sm:pb-28 lg:px-8">
+        <div className="w-full max-w-3xl">
+          <div className="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/15 px-4 py-2 backdrop-blur-sm">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--accent)]" />
+            <span className="text-sm font-semibold text-orange-200">{t.hero.badge}</span>
+          </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 pb-28 sm:pb-32">
-        <div className="max-w-4xl mx-auto w-full text-center">
-          {/* Badge */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent)]/10 border border-[var(--accent)]/20 rounded-full mb-6"
-          >
-            <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-[var(--accent)]">{t.hero.badge}</span>
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-[var(--foreground)] mb-4 leading-[1.05]"
+          <h1
+            className="reveal mb-5 text-[2.75rem] font-black leading-[1.03] tracking-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-6xl lg:text-7xl"
+            style={{ '--d': '90ms' } as React.CSSProperties}
           >
             {t.hero.title1}
             <br />
-            {t.hero.title2}{' '}
-            <span className="gradient-text">{t.hero.title3}</span>
-          </motion.h1>
+            {t.hero.title2} <span className="gradient-text">{t.hero.title3}</span>
+          </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="text-lg sm:text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto mb-8 leading-relaxed"
+          <p
+            className="reveal mb-8 max-w-xl text-lg leading-relaxed text-white/80 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)] sm:text-xl"
+            style={{ '--d': '180ms' } as React.CSSProperties}
           >
             {t.hero.subtitle}
-          </motion.p>
+          </p>
 
-          {/* Trust badges */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-            className="flex flex-wrap gap-3 mb-10 justify-center"
+          <ul
+            className="reveal mb-9 flex list-none flex-wrap gap-2.5"
+            style={{ '--d': '270ms' } as React.CSSProperties}
           >
             {trustBadges.map(({ icon: Icon, label }) => (
-              <div
+              <li
                 key={String(label)}
-                className="flex items-center gap-1.5 pt-2 pr-[15px] pb-[15px] pl-[15px] bg-[var(--card)] border border-[var(--border)] rounded-lg text-xs font-semibold text-[var(--muted-foreground)]"
+                className="flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white/90 backdrop-blur-md"
               >
-                <Icon className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <Icon className="h-3.5 w-3.5 text-[var(--accent)]" />
                 {label}
-              </div>
+              </li>
             ))}
-          </motion.div>
+          </ul>
 
-          {/* CTAs */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={4}
-            className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center"
+          <div
+            className="reveal mb-14 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+            style={{ '--d': '360ms' } as React.CSSProperties}
           >
             <Link
               href="/kontakt"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold text-base rounded-xl transition-all hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-1 pulse-glow"
+              className="pulse-glow group inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-bold text-white transition-all hover:-translate-y-1 hover:bg-[var(--accent-hover)] hover:shadow-xl hover:shadow-orange-500/30"
             >
               {t.hero.cta1}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link
-              href="/storitve"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[var(--border)] text-[var(--foreground)] font-semibold text-base rounded-xl hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+            <a
+              href={`tel:${DISPATCH_PHONE.replace(/\s/g, '')}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/25 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-md transition-all hover:border-white/60 hover:bg-white/15"
             >
-              {t.hero.cta2}
-            </Link>
-          </motion.div>
+              <Phone className="h-4 w-4" />
+              {DISPATCH_PHONE}
+            </a>
+          </div>
 
-          {/* Stats */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={5}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-[var(--border)] max-w-2xl mx-auto"
+          <dl
+            className="reveal grid max-w-2xl grid-cols-2 gap-4 border-t border-white/15 pt-8 sm:grid-cols-4 sm:gap-6"
+            style={{ '--d': '450ms' } as React.CSSProperties}
           >
-            {[
-              { value: 8, suffix: '', label: t.hero.stat1 },
-              { value: 15, suffix: '', label: t.hero.stat2 },
-              { value: 12, suffix: '', label: t.hero.stat3 },
-              { value: 1200000, suffix: '', label: t.hero.stat4 },
-            ].map((stat, i) => (
-              <div key={i} className="text-center pt-2 px-[15px] pb-[15px]">
-                <div className="text-3xl sm:text-4xl font-black text-[var(--foreground)] mb-1">
-                  <CountUp end={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-wide">
-                  {stat.label}
-                </div>
+            {stats.map((stat) => (
+              <div key={String(stat.label)}>
+                <dt className="sr-only">{stat.label}</dt>
+                <dd>
+                  <span className="mb-1 block text-3xl font-black tabular-nums text-white sm:text-4xl">
+                    <CountUp end={stat.value} format={stat.format} />
+                  </span>
+                  <span className="block text-xs font-medium uppercase tracking-wide text-white/60">
+                    {stat.label}
+                  </span>
+                </dd>
               </div>
             ))}
-          </motion.div>
+          </dl>
         </div>
       </div>
 
-      {/* Scroll hint — corner so it never covers hero stats */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5 }}
+      <div
         className="pointer-events-none absolute bottom-5 right-5 z-[1] flex flex-col items-center gap-1.5 max-[480px]:hidden"
         aria-hidden
       >
-        <span className="text-[10px] text-[var(--muted-foreground)]/70 tracking-widest uppercase">
-          {t.hero.scrollHint}
-        </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-6 bg-gradient-to-b from-[var(--accent)]/80 to-transparent"
-        />
-      </motion.div>
+        <span className="text-[10px] uppercase tracking-widest text-white/50">{t.hero.scrollHint}</span>
+        <span className="float block h-6 w-px bg-gradient-to-b from-[var(--accent)] to-transparent" />
+      </div>
     </section>
   );
 }
